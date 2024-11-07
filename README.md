@@ -50,7 +50,7 @@ HTML, CSS, JavaScript, Node.js
 <a href="https://github.com/isum450" title="Code">🛠️</a> 
 </td>
 <td align="center">
-<a href="https://github.com.lee990324">
+<a href="https://github.com/lee990324">
 <img src="https://avatars.githubusercontent.com/lee990324" width="100px;" alt=""/><br/>
 <sub><b>이영준</b></sub></a><br/>
 <a href="https://github.com/lee990324" title="Code">🛠️</a> 
