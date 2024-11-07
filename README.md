@@ -19,6 +19,16 @@ Deadline - Tuesday December 17th
 
 HTML, CSS, JavaScript, Node.js
 
+## Installation
+
+1. Clone the repository
+    ```bash
+    git clone https://github.com/z2sseong2/live-like-J-Group-12-.git
+    ```
+## Usage
+
+TBD
+
 ## Contributing
 
 ### Project Team
