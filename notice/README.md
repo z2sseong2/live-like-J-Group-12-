@@ -1,12 +1,12 @@
 # Git commit 규칙
 
-> `feat`: 새로운 기능 추가
-> `fix`: 버그 수정
-> `refactor`: 코드 리팩토링
-> `style`: 코드 형식, 정렬, 주석, 등의 변경(동작 영향x)
-> `test`: 테스트 코드 변경
-> `docs`: 문서 수정
-> `chore`: 기타 등등
+> `feat`: 새로운 기능 추가<br/>
+> `fix`: 버그 수정<br/>
+> `refactor`: 코드 리팩토링<br/>
+> `style`: 코드 형식, 정렬, 주석, 등의 변경(동작 영향x)<br/>
+> `test`: 테스트 코드 변경<br/>
+> `docs`: 문서 수정<br/>
+> `chore`: 기타 등등<br/>
 
 ex)
 
@@ -16,10 +16,8 @@ git commit -m "feat: add login page"
 
 # Git branch 규칙
 
-1. 개인 작업은 feature 브랜치 만들어서 하기
+1. 개인 작업은 feature 브랜치 만들어서 하기  ex) feature/lyj
 2. Pull Request할 때 카톡방 공지하고, merge 전 approve 받기
-
-ex) feature/lyj
 
 ## branch 생성 흐름
 
@@ -58,11 +56,11 @@ git push <branch_name>
 
 6. Pull request
 
-github repository에 들어가보면 Pull request를 할 수 있다.
+&nbsp;&nbsp; github repository에 들어가보면 Pull request를 할 수 있다.
 
 7. merge
 
-팀원에게 approve 받았으면 merge를 할 수있다.
+&nbsp;&nbsp; 팀원에게 approve 받았으면 merge를 할 수있다.
 
 8. branch 삭제
 
