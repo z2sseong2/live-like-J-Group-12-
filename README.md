@@ -51,9 +51,9 @@
 
 ## List of technologies required for executing your project
 
-> frontend -> HTML, CSS, JavaScript
-> backend runtime -> Node.js
-> database -> mongoDB
+> frontend -> HTML, CSS, JavaScript<br/>
+> backend runtime -> Node.js<br/>
+> database -> mongoDB<br/>
 
 ## Installation
 
