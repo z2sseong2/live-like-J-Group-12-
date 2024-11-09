@@ -1,0 +1,11 @@
+{
+  "name": "live-like-j",
+  "version": "0.0.1",
+  "description": "사용자가 매긴 우선순위에 따라 해야할 일을 배분해주는 플래너 및 이루고자 하는 목표를 향해 나아가는 과정을 가시화하여(지도처럼) 사용자에게 보여주는 서비스를 웹 또는 앱으로 구현해보기",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
