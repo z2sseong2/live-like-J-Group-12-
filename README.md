@@ -1,6 +1,8 @@
-# live-like-J-Group-12-
+# live-like-J
+
 
 사용자가 매긴 우선순위에 따라 해야할 일을 배분해주는 플래너 및 이루고자 하는 목표를 향해 나아가는 과정을 가시화하여(지도처럼) 사용자에게 보여주는 서비스를 웹 또는 앱으로 구현해보기.
+
 
 ## Project schedule
 
@@ -10,10 +12,19 @@ Deadline - Tuesday December 17th
 ## Team roles & development areas
 
 김지성<br/>
+> 플래너+노력지도 구현 담당
+
 김지훈<br/>
-문성<br/>
+> 로그인+회원가입 구현 담당
+
+전문성<br/>
+> 디자인 담당
+
 이수민<br/>
+> 플래너+노력지도 구현 담당
+
 이영준
+> 데이터베이스(DB) 담당
 
 ## List of technologies required for executing your project
 
