@@ -1,14 +1,18 @@
-# :white_large_square:**live like J**:black_large_square:
+<div align="center">
+  <h1>"live like <b>J</b>"</h1>
+</div>
 
-## *Project Brief Summary*
-
+## *Brief Preview*
 일정을 카테고리 별로 분류하여 관리하고, 리스트에 띄워 항시 수정할 수 있는 플래너 및 이루고자 하는 목표를 향해 나아가는 과정을 가시화하여(지도처럼) 사용자에게 보여주는 서비스를 웹으로 구현해보기.
 
-## *Project Preview by images*
+## *Introduction of live like J*
+:white_circle:로고<br/>
 
-## *Project Introduction*
+:white_circle:플래너<br/>
 
-## *Project Temporary Schedule*
+:white_circle:노력지도<br/>
+
+## *Schedule*
 
 [1주차] "11월 10일 (일) ~ 11월 16일 (토)"
 - [ ] 로그인 + 회원가입 페이지 구현<br/>
