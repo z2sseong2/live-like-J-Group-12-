@@ -106,7 +106,8 @@ Frontend<br/>
 > HTML, CSS, JavaScript
 
 Backend runtime<br/>
-> Node.js
+> Node.js version 20.18.0(LTS)<br/>
+> npm version 10.8.2.
 
 Database
 > MongoDB
