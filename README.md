@@ -21,7 +21,7 @@
 [웹 로고]<br/>
 > 이미지<br/>
 
-<img src="images/logo.jpg" alt="logo" width="250"><br/>
+<img src="images/logo_2.jpg" alt="logo" width="250"><br/>
 
 > 설명<br/>
 
