@@ -36,10 +36,10 @@ git branch <branch_name>
 3. branch로 이동<br/>
 
 ```
-git swtich <branch_name>
+git switch <branch_name>
 ```
 
-> branch 생성과 동시에 이동 `git swtich -c <branch_name>`
+> branch 생성과 동시에 이동 `git switch -c <branch_name>`
 
 4. 코드 수정 후, add 및 commit
 
