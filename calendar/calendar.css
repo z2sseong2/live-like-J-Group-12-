@@ -46,3 +46,7 @@ td {
 .current-day {
     background-color: #ffeb3b;
 }
+
+.blurred {
+    color: #ccc;
+}
