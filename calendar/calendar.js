@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Table structure
         let calendarHTML = '<table>';
-        calendarHTML += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+        calendarHTML += '<tr class="tb-head"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
 
         let date = 1;
         let nextMonthDate = 1;
 
         // Generate rows
         for (let i = 0; i < 7; i++) {
-            calendarHTML += '<tr>';
+            calendarHTML += '<tr class="tb-body">';
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDay) {
                     // Previous month's dates

@@ -1,19 +1,30 @@
+@charset "UTF-8";
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    display: block;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
 }
 
 .calendar-container {
-    display: inline-block;
-    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1em;
+    direction: ltr;
 }
 
 .calendar-header {
+    margin-bottom: 1.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .calendar-header button {
@@ -21,18 +32,51 @@ body {
     cursor: pointer;
 }
 
+#current-month {
+    font-size: 2em;
+}
+
+.calendar {
+    position: relative;
+    z-index: 1;
+    box-sizing: content-box;
+}
+
 table {
+    position: relative;
+    z-index: 1;
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
-    margin: 0 auto;
+    border-spacing: 0;
+    font-size: 1em;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-color: gray;
+    direction: ltr;
+    box-sizing: content-box;
+}
+
+.tb-head {
+    box-sizing: content-box;
+    text-align: center;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0;
+}
+
+.tb-body {
+    text-align: right;
+    vertical-align: top;
 }
 
 th,
 td {
     width: 14.28%;
     border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+    padding: 1px;
 }
 
 th {
@@ -41,6 +85,7 @@ th {
 
 td {
     height: 50px;
+    padding-bottom: 6%;
 }
 
 .current-day {
