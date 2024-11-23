@@ -1,0 +1,81 @@
+.header{
+    background-color: #f3f2f2;
+    padding : 3px;
+}
+
+img {
+    width : 250px;
+    padding: 20px;
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 10px;
+  }
+/*
+.button_login{
+        cursor: pointer;
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #1BBC9B;
+        border-radius: 5px;
+        font-size: 14px;
+        border: none;
+        padding: 10px;
+        width: 100px;
+        height : 20%;
+        background-color: #1BBC9B;
+        margin-bottom: 30px;
+        color: white;
+}
+*/
+body {
+    margin: 100;
+    background-color: #f3f2f2;
+}
+
+.signup{
+    background-color: #d3d5d7;
+    display : flex;
+    flex-direction: column;
+    width :40%;
+    margin: auto; 
+    padding: 0 30px 30px 20px;
+    margin-bottom: 20px;
+}
+.signup strong{
+    display: block;
+}
+.signup h2{
+    text-align: center;
+}
+.userpw{
+    background-size: 50px;
+}
+.userpw-confirm{
+    background-size: 30px;
+}
+
+.login_form{
+    display: block;
+    width : 100%;
+    bottom : 50px;
+    position : relative;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 15px;
+    border : none;
+    background-color: white;
+}
+
+
+.join_btn{
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+

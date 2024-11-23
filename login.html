@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>live-like-j Login</title>
+    <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+    <div class = "logo_img"><img src="logo3.jpg"></div>
+
+    <div class = "login_screen">
+        
+	<!-- 로그인 하는 곳 -->
+        <div class = "login_form">
+            <form action = "login.php" method="post">
+                <input type = "text" name = "id" class = "login_element" placeholder="ID">
+                <input type = "password" name = "password" class = "login_element" placeholder="PASSWORD">
+                <input type = "submit" value = "LOGIN" class = "login_btn">
+                <input type = "button" value = "SIGN UP" class = "join_btn" onClick = "location.href ='sign_up.html'">
+            </form>
+            <div class="links">
+                <a href="#">Forgot your password?</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
