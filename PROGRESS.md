@@ -19,3 +19,6 @@
 	● 할일 기록 및 관리 : 우선순위 설정, 메모 입력 등 작업 효율화를 위한 기능 포함<br/>
 4. CSS 및 인터페이스 디자인 : <br/>
 	● 로그인 및 회원가입 창의 간단한 형태와 기능을 수행할 CSS 구현<br/>
+
+### Project Schedule
+<img src="images/temp_progress.png"><br/>
