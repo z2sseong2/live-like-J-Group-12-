@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>live-like-j SIGN UP</title>
+		<link rel="stylesheet" href="signup_style.css">
+	</head>
+	<body>
+		<div class = "header">
+			<!--
+			<button class = "button_login" onClick = "location.href ='login.html'"s>LOGIN</button>
+			-->
+			<img src = "logo2.jpg">
+		</div>
+		<div class = "signup">
+			<form action = "signup_check.php" method = "post">
+				<h2>sign up</h2>
+				<!--회원가입 항목들-->
+				
+				<strong>NAME</strong>
+				<input type="text" name = "name" class = "login_form" placeholder = "Name" >
+
+				<strong>ID</strong>
+				<input type="text" name = "id"  class = "login_form", placeholder = "ID">
+
+
+				<strong>PASSWORD</strong>
+				<input type="password" name ="password"  class ="login_form userpw" placeholder = "Password">
+
+
+				<strong>CONFIRM PASSWROD</strong>
+				<input type="password" name = "re_password" class ="login_form userpw-confirm" placeholder = "Re_Password">
+
+
+				<strong>PHONE-NUMBER</strong>
+				<input type="tel" name = "phnum" class = "login_form" placeholder = "NUM" >
+				
+				<strong>E-MAIL</strong>
+				<input type="email" name = "e-mail" class = "login_form" placeholder = "E-mail" >
+
+				<!--가입 신청 버튼-->
+				<div class = "join_btn">
+					<button type = "submit" name = "join button" style = "cursor : pointer; font-weight : 900; border : none; width : 50%; height : 40px; background-color:rgb(187, 202, 190);" value = "가입하기" id = " join_btn">sign up
+					</button>
+				</div>
+			</form>
+		</div>
+
+	</body>
+</html>

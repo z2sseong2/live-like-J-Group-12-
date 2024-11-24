@@ -1,0 +1,70 @@
+
+img {
+    width : 300px;
+    padding: 20px;
+    display: block;
+    margin: auto;
+}
+
+.lolo_img {
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 5px;
+  }
+
+body {
+    margin: 0;
+    background-color: rgb(242, 242, 242);
+}
+
+.login_form{
+    width:300px;
+    background-color : #d3d5d7; ;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border : none;
+}
+
+.login_element{
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    width: 260px;
+    margin-bottom: 10px;
+}
+
+.login_btn{
+    font-size: 14px;
+    border: none;
+    padding: 10px;
+    width: 260px;
+    background-color: #1BBC9B;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.join_btn{
+    font-size: 14px;
+    border: none;
+    padding: 10px;
+    width: 260px;
+    background-color: #3b4442;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.links {
+    text-align: center;
+}
+ 
+.links a {
+  font-size: 12px;
+  color: #9B9B9B;
+}
