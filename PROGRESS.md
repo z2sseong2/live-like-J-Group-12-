@@ -21,4 +21,10 @@
 	● 로그인 및 회원가입 창의 간단한 형태와 기능을 수행할 CSS 구현<br/>
 
 ### Project Schedule
+이미지<br/>
+
+### Project Screenshot
+
+## Individual Progress Status
+
 
