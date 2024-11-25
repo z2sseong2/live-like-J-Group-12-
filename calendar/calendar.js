@@ -20,37 +20,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDay = new Date(year, month, 1).getDay();
         const prevMonthDays = new Date(year, month, 0).getDate();
-
+    
+        const savedPlans = JSON.parse(localStorage.getItem('plans')) || {};
+    
         // Table structure
         let calendarHTML = '<table>';
         calendarHTML += '<tr class="tb-head"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
-
+    
         let date = 1;
         let nextMonthDate = 1;
-
-        // Generate rows
+    
         for (let i = 0; i < 7; i++) {
             calendarHTML += '<tr class="tb-body">';
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDay) {
-                    // Previous month's dates
                     const prevDate = prevMonthDays - firstDay + j + 1;
                     calendarHTML += `<td class="blurred">${prevDate}</td>`;
                 } else if (date > daysInMonth) {
-                    // Next month's dates
                     calendarHTML += `<td class="blurred">${nextMonthDate}</td>`;
                     nextMonthDate++;
                 } else {
-                    // Current month's dates
                     const isToday = date === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-                    calendarHTML += `<td class="${isToday ? 'current-day' : ''}">${date}</td>`;
+                    const currentDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                    const plans = savedPlans[currentDate] || [];
+                    calendarHTML += `<td class="${isToday ? 'current-day' : ''}">
+                                        <div>${date}</div>
+                                        <ul>
+                                            ${plans.map(plan => `<li>${plan}</li>`).join('')}
+                                        </ul>
+                                     </td>`;
                     date++;
                 }
             }
             calendarHTML += '</tr>';
             if (date > daysInMonth && nextMonthDate > 7 - (firstDay + daysInMonth) % 7) break;
         }
-
+    
         calendarHTML += '</table>';
         calendarElement.innerHTML = calendarHTML;
     }
