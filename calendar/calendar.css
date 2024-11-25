@@ -95,3 +95,55 @@ td {
 .blurred {
     color: #ccc;
 }
+
+/* 추가된 스타일 */
+#plans-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#plans-container input {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#plans-container button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#plans-container button:hover {
+    background-color: #0056b3;
+}
+
+/* 계획 삭제 버튼 관련 스타일 */
+td ul li {
+    position: relative;
+    padding-right: 20px; /* 버튼 위치 확보 */
+}
+
+td ul li button.delete-plan-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: none; /* 기본적으로 숨김 */
+    cursor: pointer;
+}
+
+td ul li:hover button.delete-plan-btn {
+    display: inline-block; /* 마우스오버 시 표시 */
+}

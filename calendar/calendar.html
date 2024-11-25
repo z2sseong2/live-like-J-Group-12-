@@ -5,19 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monthly Calendar</title>
-    <link href='./calendar.css' rel='stylesheet' />
-    <script src="./calendar.js"></script>
+    <link href="./calendar.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="calendar-container">
+        <!-- 달력 상단 헤더 -->
         <div class="calendar-header">
             <button id="prev-month">&lt;</button>
             <a id="current-month"></a>
             <button id="next-month">&gt;</button>
         </div>
+        <!-- 달력 -->
         <div id="calendar"></div>
+        <!-- 버튼 컨테이너 -->
+        <div class="buttons-container" style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <button id="go-to-inputschedule-btn">Input Schedule</button>
+            <button id="go-to-weekly-btn">Weekly Plans</button>
+        </div>
     </div>
+    <script src="./calendar.js"></script>
 </body>
 
 </html>

@@ -12,14 +12,26 @@
     <div class="schedule-container">
         <h1>Add Schedule</h1>
         <form id="schedule-form">
-            <label for="date">Date:</label>
-            <input type="date" id="date" required />
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" required />
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" required />
             <label for="schedule">Schedule:</label>
             <input type="text" id="schedule" placeholder="Enter your plan" required />
             <button type="submit">Add to Calendar</button>
         </form>
+        <!-- Back 버튼 -->
+        <div style="margin-top: 20px; text-align: left;">
+            <button id="back-to-calendar-btn">Back</button>
+        </div>
     </div>
     <script src="./inputschedule.js"></script>
+    <script>
+        // Back 버튼 클릭 시 달력 페이지로 이동
+        document.getElementById('back-to-calendar-btn').addEventListener('click', () => {
+            window.location.href = './calendar.html';
+        });
+    </script>
 </body>
 
 </html>
