@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-month');
     const inputScheduleButton = document.getElementById('go-to-inputschedule-btn');
     const weeklyPlansButton = document.getElementById('go-to-weekly-btn');
+    const menuButton = document.getElementById('menu-trigger');
 
     let today = new Date();
     let month = today.getMonth();
@@ -125,4 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateCalendar();
+
+    menuButton.addEventListener('click', () => {
+       
+        
+        updateCalendar();
+    });
+
+
 });
+
