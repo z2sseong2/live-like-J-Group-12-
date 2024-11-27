@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentMonthElement = document.getElementById('current-month');
     const prevButton = document.getElementById('prev-month');
     const nextButton = document.getElementById('next-month');
-    const inputScheduleButton = document.getElementById('go-to-inputschedule-btn');
-    const weeklyPlansButton = document.getElementById('go-to-weekly-btn');
+    const inputScheduleButton = document.getElementById('inputschedule-btn');
+    const weeklyPlansButton = document.getElementById('weekly-btn');
     const menuButton = document.getElementById('menu-trigger');
 
     let today = new Date();
@@ -25,19 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateCalendar(month, year) {
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDay = new Date(year, month, 1).getDay();
+        const prevMonthDays = new Date(year, month, 0).getDate();
 
+        const savedPlans = JSON.parse(localStorage.getItem('plans')) || {};
+
+        // Table structure
         let calendarHTML = '<table>';
-        calendarHTML += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+        calendarHTML += '<tr class="td-head"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
 
         let date = 1;
+        let nextMonthDate = 1;
 
-        for (let i = 0; i < 6; i++) {
-            calendarHTML += '<tr>';
+        for (let i = 0; i < 7; i++) {
+            calendarHTML += '<tr class="tb-body">';
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDay) {
-                    calendarHTML += '<td></td>';
+                    const prevDate = prevMonthDays - firstDay + j + 1;
+                    calendarHTML += `<td class="blurred">${prevDate}</td>`;
                 } else if (date > daysInMonth) {
-                    break;
+                    calendarHTML += `<td class="blurred">${nextMonthDate}</td>`;
+                    nextMonthDate++;
                 } else {
                     const currentDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
                     const plans = savedPlans[currentDate] || [];
@@ -47,18 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <div>${date}</div>
                                         <ul>
                                             ${plans
-                                                .map((plan, index) =>
-                                                    `<li>
+                            .map((plan, index) =>
+                                `<li>
                                                         ${plan}
                                                         <button class="delete-plan-btn" data-date="${currentDate}" data-index="${index}">x</button>
                                                      </li>`)
-                                                .join('')}
+                            .join('')}
                                         </ul>
                                      </td>`;
                     date++;
                 }
             }
             calendarHTML += '</tr>';
+            if (date > daysInMonth && nextMonthDate > 7 - (firstDay + daysInMonth) % 7) break;
         }
 
         calendarHTML += '</table>';
@@ -128,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCalendar();
 
     menuButton.addEventListener('click', () => {
-       
-        
+
+
         updateCalendar();
     });
 

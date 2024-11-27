@@ -11,34 +11,36 @@
 <body>
     <div class="calendar-container">
         <!-- 달력 상단 헤더 -->
-        <nav class="calendar-header">
-            <div class="menu-trigger" href="#" style="border: 1px solid blue;">
+        <div class="calendar-header">
+            <div class="menu-trigger" href="#">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <div class="calendar-header-button">
-                <button id="today">today</button>
-                <button id="prev-month">&lt;</button>
-                <a id="current-month"></a>
-                <button id="next-month">&gt;</button>
-                <button id="inputschedule-btn">+</button>
-                <div>
+            <div class="button-bar">
+                <div class="month-bar">
+                    <button id="today">today</button>
+                    <button id="prev-month">&lt;</button>
+                    <div id="current-month"></div>
+                    <button id="next-month">&gt;</button>
+                </div>
+                <div class="weekly-change-bar">
                     <button id="Month-btn">Month</button>
                     <button id="weekly-btn">Weekly</button>
                 </div>
+                <div class="schedule-bar">
+                    <button id="inputschedule-btn">+</button>
+                </div>
             </div>
-        </nav>
-        <div class="menu-list">
         </div>
-        <!-- 달력 -->
-        <div id="calendar"></div>
-        <!-- 버튼 컨테이너 -->
-        <div class="buttons-container" style="display: flex; justify-content: space-between; margin-top: 20px;">
-            <button id="go-to-inputschedule-btn">Input Schedule</button>
-            <button id="go-to-weekly-btn">Weekly Plans</button>
+        <div class="calendar-body">
+            <div class="menu-list">
+            </div>
+            <!-- 달력 -->
+            <div id="calendar"></div>
         </div>
     </div>
+
     <script src="./calendar.js"></script>
 </body>
 
