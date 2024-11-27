@@ -11,16 +11,24 @@
 <body>
     <div class="calendar-container">
         <!-- 달력 상단 헤더 -->
-        <div class="calendar-header">
-            <a class="menu-trigger" href="#">
+        <nav class="calendar-header">
+            <div class="menu-trigger" href="#" style="border: 1px solid blue;">
                 <span></span>
                 <span></span>
                 <span></span>
-            </a>
-            <button id="prev-month">&lt;</button>
-            <a id="current-month"></a>
-            <button id="next-month">&gt;</button>
-        </div>
+            </div>
+            <div class="calendar-header-button">
+                <button id="today">today</button>
+                <button id="prev-month">&lt;</button>
+                <a id="current-month"></a>
+                <button id="next-month">&gt;</button>
+                <button id="inputschedule-btn">+</button>
+                <div>
+                    <button id="Month-btn">Month</button>
+                    <button id="weekly-btn">Weekly</button>
+                </div>
+            </div>
+        </nav>
         <div class="menu-list">
         </div>
         <!-- 달력 -->
