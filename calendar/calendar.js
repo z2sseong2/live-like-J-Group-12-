@@ -68,29 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
         calendarElement.innerHTML = calendarHTML;
     }
 
-    function deletePlan(date, index) {
-        if (!savedPlans[date]) return;
-
-        // 계획 삭제
-        savedPlans[date].splice(index, 1);
-
-        // 계획이 비어 있다면 해당 날짜를 로컬 스토리지에서 제거
-        if (savedPlans[date].length === 0) {
-            delete savedPlans[date];
-        }
-
-        // 업데이트된 계획 저장
-        localStorage.setItem('plans', JSON.stringify(savedPlans));
-
-        // 달력 업데이트
-        updateCalendar();
-    }
-
     function updateCalendar() {
         updateHeader();
         generateCalendar(month, year);
     }
 
+    // 오늘 날짜로 돌아와서 달력 다시 생성
+    todayButton.addEventListener('click', () => {
+        month = today.getMonth();   //이번 달
+        year = today.getFullYear(); //올해 년도
+
+        updateCalendar();
+    });
+
+    // 전 달로 이동
     prevButton.addEventListener('click', () => {
         month--;
         if (month < 0) {
@@ -100,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCalendar();
     });
 
+    // 다음 달로 이동
     nextButton.addEventListener('click', () => {
         month++;
         if (month > 11) {
