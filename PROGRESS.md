@@ -22,6 +22,8 @@
 
 ### Project Schedule
 이미지<br/>
+[메인페이지]
+<img src="main.jpg">
 
 ### Project Screenshot
 
