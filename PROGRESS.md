@@ -23,6 +23,10 @@
 ### Project Schedule
 이미지<br/>
 
+
+### Project Screenshot
+
+
 [메인페이지]
 <br/>
 <img src="images/main.jpg" alt="main" width="500"><br/>
@@ -36,8 +40,6 @@
 <img src="images/localhost_connection.jpg" alt ="signup" width = "500"><br/>
 
 <img src="images/localhost_web.jpg" alt ="signup" width = "500"><br/>
-
-### Project Screenshot
 
 ## Individual Progress Status
 
