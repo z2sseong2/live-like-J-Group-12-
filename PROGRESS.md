@@ -43,4 +43,15 @@
 
 ## Individual Progress Status
 
+김지성
 
+김지훈
+
+전문성
+- [ ]캘린더 메인페이지 좌측 상단 메뉴버튼 생성
+- [ ]메뉴버튼 클릭시 메뉴리스트 구현 및 메뉴UI 생성
+https://github.com/z2sseong2/live-like-J-Group-12-/commit/794e5f84ed8451dbe049c0855533e71fc0f48242
+
+이수민
+
+이영준
