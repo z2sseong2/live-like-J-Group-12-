@@ -42,10 +42,8 @@
 <img src="images/localhost_web.jpg" alt ="signup" width = "500"><br/>
 
 ## Individual Progress Status
-[수민]
 <br/>
-- main.js 파일로 loaclhost port 연결하기 (511642d02d7505d5a50a4fa2118d5b7bc1e70110)<br/>
-- 메인 페이지, 회원가입 페이지 생성(1c683d83d52fba1bf4099cf88cb14a3314473905)<br/>
+
 
 김지성
 
@@ -57,5 +55,7 @@
 https://github.com/z2sseong2/live-like-J-Group-12-/commit/794e5f84ed8451dbe049c0855533e71fc0f48242
 
 이수민
+- main.js 파일로 loaclhost port 연결하기 (511642d02d7505d5a50a4fa2118d5b7bc1e70110)<br/>
+- 메인 페이지, 회원가입 페이지 생성(1c683d83d52fba1bf4099cf88cb14a3314473905)<br/>
 
 이영준
