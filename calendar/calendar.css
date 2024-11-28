@@ -298,3 +298,24 @@ td ul li:hover button.delete-plan-btn {
     display: inline-block;
     /* 마우스오버 시 표시 */
 }
+#weekly-plans {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#weekly-plans th, #weekly-plans td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 1px;
+    vertical-align: middle;
+}
+
+#weekly-plans th {
+    background-color: #f4f4f4;
+}
+
+#weekly-plans td {
+    height: 50px;
+    padding-bottom: 6%;
+}

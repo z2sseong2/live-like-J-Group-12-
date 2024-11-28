@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let today = new Date();         //오늘 날짜
     let month = today.getMonth();   //이번 달
     let year = today.getFullYear(); //올해 년도
+    let viewMode = "month";
 
     // 로컬 스토리지에서 계획 불러오기
     const savedPlans = JSON.parse(localStorage.getItem('plans')) || {};
@@ -69,9 +70,44 @@ document.addEventListener('DOMContentLoaded', () => {
         calendarElement.innerHTML = calendarHTML;
     }
 
+    /*  updateView로통합
     function updateCalendar() {
         updateHeader();
         generateCalendar(month, year);
+    }*/
+    function generateWeeklyView() {
+        const startOfWeek = new Date(today);
+        startOfWeek.setDate(today.getDate() - today.getDay()); // 주 시작일 계산
+    
+        let weeklyHTML = '<table id="weekly-plans"><thead><tr>';
+        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(day => {
+            weeklyHTML += `<th>${day}</th>`;
+        });
+        weeklyHTML += '</tr></thead><tbody><tr>';
+    
+        for (let i = 0; i < 7; i++) {
+            const currentDate = new Date(startOfWeek);
+            currentDate.setDate(startOfWeek.getDate() + i);
+            const dateString = currentDate.toISOString().split('T')[0];
+            const plans = savedPlans[dateString] || []; // 저장된 계획 가져오기
+    
+            weeklyHTML += `<td>
+                ${plans.length > 0 
+                    ? `<ul>${plans.map(plan => `<li>${plan}</li>`).join('')}</ul>` 
+                    : '<div></div>'} <!-- 계획이 없으면 공백 -->
+            </td>`;
+        }
+        weeklyHTML += '</tr></tbody></table>';
+    
+        calendarElement.innerHTML = weeklyHTML;
+    }
+    function updateView() {
+        if (viewMode === "month") {
+            updateHeader();
+            generateCalendar(month, year);
+        } else if (viewMode === "weekly") {
+            generateWeeklyView();
+        }
     }
 
     // 오늘 날짜로 돌아와서 달력 다시 생성
@@ -79,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         month = today.getMonth();   //이번 달
         year = today.getFullYear(); //올해 년도
 
-        updateCalendar();
+        updateView();
     });
 
     // 전 달로 이동
@@ -89,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             month = 11;
             year--;
         }
-        updateCalendar();
+        updateView();
     });
 
     // 다음 달로 이동
@@ -99,20 +135,27 @@ document.addEventListener('DOMContentLoaded', () => {
             month = 0;
             year++;
         }
-        updateCalendar();
+        updateView();
     });
 
     // Input Schedule 페이지로 이동
     inputScheduleButton.addEventListener('click', () => {
         window.location.href = './inputschedule.html';
     });
+    updateView();
 
-    // Weekly Plans 페이지로 이동
+    
     weeklyPlansButton.addEventListener('click', () => {
-        window.location.href = './weekly.html';
+        viewMode = "weekly";
+        updateView();
     });
 
-    updateCalendar();
+    monthPlansButton.addEventListener('click', () => {
+        viewMode = "month";
+        updateView();
+    });
+
+
 
     menuButton.addEventListener('click', () => {
         // 메뉴 박스의 표시 여부를 토글
@@ -121,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             menuBox.style.display = 'none'; // 메뉴 숨기기
         }
-        updateCalendar();
+        updateView();
     });
 
      // 각각의 버튼에 이벤트 추가 (필요에 따라 수정 가능)
