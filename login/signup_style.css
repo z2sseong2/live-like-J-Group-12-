@@ -13,37 +13,27 @@ img {
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
     border-radius: 10px;
+    font-size: 16px;
   }
-/*
-.button_login{
-        cursor: pointer;
-        font-family: 'Noto Sans KR', sans-serif;
-        background-color: #1BBC9B;
-        border-radius: 5px;
-        font-size: 14px;
-        border: none;
-        padding: 10px;
-        width: 100px;
-        height : 20%;
-        background-color: #1BBC9B;
-        margin-bottom: 30px;
-        color: white;
-}
-*/
+
 body {
     margin: 100;
     background-color: #f3f2f2;
 }
 
 .signup{
-    background-color: #d3d5d7;
+    background:linear-gradient(124.47deg, 
+    rgba(255, 255, 255, 0.0), 
+    rgba(255, 255, 255, 0.0), 
+    rgba(255, 255, 255, 0.0));
     display : flex;
     flex-direction: column;
     width :40%;
     margin: auto; 
-    padding: 0 30px 30px 20px;
+    padding: 0 0 0 0;
     margin-bottom: 20px;
 }
+
 .signup strong{
     display: block;
 }
@@ -57,19 +47,23 @@ body {
     background-size: 30px;
 }
 
+input{
+    color: rgba(80, 15, 15, 0.5);
+}
+input::placeholder {
+    color: rgba(80, 15, 15, 0.5);
+}
+
 .login_form{
     display: block;
     width : 100%;
-    bottom : 50px;
     position : relative;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 50px;
     padding: 15px;
     border : none;
-    background-color: white;
-}
 
+}
 
 .join_btn{
     border: none;
@@ -79,3 +73,42 @@ body {
     margin-bottom: 30px;
 }
 
+button:active {
+    position:relative;
+    top : 5px;
+    margin-top:5px;
+}
+
+.hide {
+    display:  none;
+
+}
+
+fieldset{
+    border: none;
+    padding-bottom: 0;
+}
+
+strong {
+    margin-top : 30px;
+}
+
+.success-message {
+    margin-left : 30px;
+    color: rgba(80, 15, 15, 0.5);
+}
+
+.condition-message {
+    margin-left : 30px;
+    color: rgba(80, 15, 15, 0.5);
+}
+
+.checkPassword-message{
+    margin-left : 30px;
+    color: rgba(80, 15, 15, 0.5);
+}
+
+.mismatch-message{
+    margin-left : 30px;
+    color: rgba(80, 15, 15, 0.5);
+}
