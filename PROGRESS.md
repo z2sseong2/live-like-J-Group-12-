@@ -23,7 +23,7 @@
 ### Project Schedule
 이미지<br/>
 [메인페이지]
-<img src="main.jpg">
+<img src="images/main.jpg" alt="main" width="250"><br/>
 
 ### Project Screenshot
 
