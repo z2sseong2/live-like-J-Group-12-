@@ -49,25 +49,42 @@ div {
 
 /* 메뉴 버튼 */
 .menu-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 40px; /* 전체 아이콘 너비 */
-    height: 30px; /* 전체 아이콘 높이 */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* 줄 간격 균등 분배 */
-    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.menu-button,
+.menu-button span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+}
+
+.menu-button {
+    position: relative;
+    width: 30px;
+    height: 28px;
 }
 
 .menu-button span {
-    display: block;
+    position: absolute;
+    left: 0;
     width: 100%;
-    height: 4px; /* 선의 두께 */
-    background-color: black; /* 선 색상 */
-    border-radius: 2px; /* 선 끝을 약간 둥글게 */
+    height: 4px;
+    background-color: gray;
+    border-radius: 4px;
 }
 
+.menu-button span:nth-of-type(1) {
+    top: 0px;
+}
+
+.menu-button span:nth-of-type(2) {
+    top: 12px;
+}
+
+.menu-button span:nth-of-type(3) {
+    bottom: 0;
+}
 
 /* 메뉴 박스 스타일 */
 .menu-box {
@@ -106,6 +123,14 @@ div {
 
 .menu-box ul li button:hover {
     background-color: gray;
+}
+
+.button-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 /* 달력 컨트롤 바 */
