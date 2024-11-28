@@ -31,6 +31,11 @@
 <br/>
 <img src="images/signup.jpg" alt ="signup" width = "500"><br/>
 
+[로컬호스트로 웹 페이지 연결]
+<img src="images/localhost_connection.jpg" alt ="signup" width = "500"><br/>
+
+<img src="images/localhost_web.jpg" alt ="signup" width = "500"><br/>
+
 ### Project Screenshot
 
 ## Individual Progress Status
