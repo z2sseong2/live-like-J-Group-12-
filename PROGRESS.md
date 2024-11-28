@@ -22,8 +22,14 @@
 
 ### Project Schedule
 이미지<br/>
+
 [메인페이지]
-<img src="images/main.jpg" alt="main" width="250"><br/>
+<br/>
+<img src="images/main.jpg" alt="main" width="500"><br/>
+
+[회원가입페이지]
+<br/>
+<img src="images/signup.jpg" alt ="signup" width = "500"><br/>
 
 ### Project Screenshot
 
