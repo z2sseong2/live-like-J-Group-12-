@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const calendarElement = document.getElementById('calendar');                //캘린더
-    const menuButton = document.getElementById('menu-trigger');                 //메뉴 버튼
+    const menuButton = document.getElementById('menuButton');                 //메뉴 버튼
     const todayButton = document.getElementById('today-btn');                   //오늘 날짜로 달력 이동
     const currentMonthElement = document.getElementById('current-month');       //몇월인지 나타냄
     const prevButton = document.getElementById('prev-month-btn');               //전 달 이동
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const monthPlansButton = document.getElementById('month-btn');              //월간 planner 이동
     const weeklyPlansButton = document.getElementById('weekly-btn');            //주간 planner 이동
     const inputScheduleButton = document.getElementById('inputschedule-btn');   //plan 입력
+    const menuBox = document.getElementById('menuBox');
 
     let today = new Date();         //오늘 날짜
     let month = today.getMonth();   //이번 달
@@ -114,11 +115,33 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCalendar();
 
     menuButton.addEventListener('click', () => {
-
-
+        // 메뉴 박스의 표시 여부를 토글
+        if (menuBox.style.display === 'none' || menuBox.style.display === '') {
+            menuBox.style.display = 'block'; // 메뉴 보이기
+        } else {
+            menuBox.style.display = 'none'; // 메뉴 숨기기
+        }
         updateCalendar();
     });
 
-
+     // 각각의 버튼에 이벤트 추가 (필요에 따라 수정 가능)
+    document.getElementById('schedulesButton').addEventListener('click', () => {
+        alert('Schedules clicked');
+    });
+    document.getElementById('todoListButton').addEventListener('click', () => {
+        alert('ToDoList clicked');
+    });
+    document.getElementById('challengeMapButton').addEventListener('click', () => {
+        alert('ChallengeMap clicked');
+    });
+    document.getElementById('memoButton').addEventListener('click', () => {
+        alert('Memo clicked');
+    });
+    document.getElementById('guidelineButton').addEventListener('click', () => {
+        alert('Guideline clicked');
+    });
+    document.getElementById('settingsButton').addEventListener('click', () => {
+        alert('Settings clicked');
+    });
 });
 

@@ -48,24 +48,24 @@ div {
 }
 
 /* 메뉴 버튼 */
-.menu-trigger {
+.menu-button {
     margin: 0px 10px;
 }
 
-.menu-trigger,
-.menu-trigger span {
+.menu-button,
+.menu-button span {
     display: inline-block;
     transition: all .4s;
     box-sizing: border-box;
 }
 
-.menu-trigger {
+.menu-button {
     position: relative;
     width: 30px;
     height: 28px;
 }
 
-.menu-trigger span {
+.menu-button span {
     position: absolute;
     left: 0;
     width: 100%;
@@ -74,19 +74,57 @@ div {
     border-radius: 4px;
 }
 
-.menu-trigger span:nth-of-type(1) {
+.menu-button span:nth-of-type(1) {
     top: 0px;
 }
 
-.menu-trigger span:nth-of-type(2) {
+.menu-button span:nth-of-type(2) {
     top: 12px;
 }
 
-.menu-trigger span:nth-of-type(3) {
+.menu-button span:nth-of-type(3) {
     bottom: 0;
 }
 
-/* 버튼 컨테이너(메뉴 버튼을 제외한 나머지 헤더) */
+/* 메뉴 박스 스타일 */
+.menu-box {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    width: 200px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* 기본 상태: 숨김 */
+}
+
+.menu-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-box ul li {
+    margin: 10px 0;
+}
+
+.menu-box ul li button {
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.menu-box ul li button:hover {
+    background-color: gray;
+}
+
 .button-bar {
     display: flex;
     justify-content: space-between;
