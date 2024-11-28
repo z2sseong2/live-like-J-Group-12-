@@ -16,7 +16,7 @@ loginbtn.addEventListener("click" , (e) => {
             console.log("출력 직전");
             e.preventDefault();
             alert("로그인 성공");
-            window.location.href = "calendar\\calendar.html";
+            window.location.href = "calendar.html";
             return;
         }
     }

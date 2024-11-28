@@ -169,7 +169,7 @@ setjoinbtn.addEventListener("click", (e) => {
     localStorage.setItem("Users", JSON.stringify(Users));
 
     alert("로그인 성공!");
-    window.location.href ="calendar\\calendar.html";
+    window.location.href ="calendar.html";
 
 });
 
