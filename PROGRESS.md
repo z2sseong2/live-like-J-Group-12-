@@ -46,6 +46,8 @@
 
 
 김지성
+- 로고 제작([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/bbf789cde585b05822526c3cd4688529197091fb))
+- 프로토타입 작성([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/c4f1bb293d40f5d3eb7f6297fa010e45c432a706))([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/f27c37cf2323b17307170d5d0ea27c34cc6bb2e1))([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/4dea823e47a2d6d8210fd191731e8a7777f5f358))
 
 김지훈
 - 스케쥴을 입력 할 수 있는 페이지 구현 ([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/e82247e154dd4b13e62fb03f3f2eea3db213a5c0))
