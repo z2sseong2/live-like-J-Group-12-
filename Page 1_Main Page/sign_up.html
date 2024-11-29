@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>live-like-j SIGN UP</title>
+        <link rel="stylesheet" href="signup_style.css" />
+    </head>
+    <body>
+        <div class="logo horizontal">
+            <!--
+			<button class = "button_login" onClick = "location.href ='login.html'"s>LOGIN</button>
+			-->
+            <img src="../images/logo_2.jpg" />
+        </div>
+        <div class="signup horizontal">
+            <form method="post">
+                <h2>sign up</h2>
+                <!--회원가입 항목들-->
+
+                <fieldset>
+                    <strong>NAME</strong>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="login_form"
+                        placeholder="Name"
+                    />
+                </fieldset>
+
+                <fieldset>
+                    <strong>ID</strong>
+                    <input
+                        type="text"
+                        id="id"
+                        name="id"
+                        class="login_form userid"
+                        ,
+                        placeholder="ID"
+                    />
+                </fieldset>
+                <div class="success-message hide">
+                    사용할 수 있는 아이디입니다
+                </div>
+                <div class="condition-message hide">
+                    아이디는 4~12글자이어야 합니다
+                </div>
+
+                <fieldset>
+                    <strong>PASSWORD</strong>
+                    <input
+                        type="password"
+                        id="pw"
+                        name="password"
+                        class="login_form userpw"
+                        placeholder="Password"
+                    />
+                </fieldset>
+                <div class="checkPassword-message hide">
+                    8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요
+                </div>
+
+                <fieldset>
+                    <strong>CONFIRM PASSWROD</strong>
+                    <input
+                        type="password"
+                        id="pwConfirm"
+                        name="password confirm"
+                        class="login_form userpw-confirm"
+                        placeholder="password confirm"
+                    />
+                </fieldset>
+                <div class="mismatch-message hide">
+                    비밀번호가 일치하지 않습니다
+                </div>
+
+                <fieldset>
+                    <strong>PHONE-NUMBER</strong>
+                    <input
+                        type="tel"
+                        id="pn"
+                        name="phnum"
+                        class="login_form"
+                        placeholder="PHONE-NUMBER"
+                    />
+                </fieldset>
+
+                <fieldset>
+                    <strong>E-MAIL</strong>
+                    <input
+                        type="email"
+                        id="em"
+                        name="e-mail"
+                        class="login_form"
+                        placeholder="E-mail"
+                    />
+                </fieldset>
+
+                <!--가입 신청 버튼-->
+                <div class="join_btn">
+                    <button
+                        type="submit"
+                        name="join button"
+                        style="
+                            cursor: pointer;
+                            border: none;
+                            width: 50%;
+                            height: 40px;
+                            color: white;
+                            background-color: rgba(80, 15, 15, 0.5);
+                            font-family: 'Noto Sans KR', sans-serif;
+                        "
+                        value="가입하기"
+                        id="join_btn"
+                    >
+                        sign up
+                    </button>
+                </div>
+            </form>
+        </div>
+        <script src="signup.js"></script>
+    </body>
+</html>
