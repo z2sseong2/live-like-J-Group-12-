@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.getElementById("menuButton"); // 메뉴버튼
     const menuBox = document.getElementById("menuBox");
@@ -52,23 +50,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("logoButton").addEventListener("click", () => {
         window.location.href = "../Page 2_Hub Page/calendar.html";
     });
-});
-
-// 프로필 섹션의 버튼 클릭 이벤트
-const progressButtons = document.querySelectorAll(".progress-buttons button");
-progressButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-        alert(`평균 일일 완주율 버튼 ${index + 1} 클릭됨!`);
-    });
-});
-
-// 정보 섹션 폼 제출 이벤트
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-    e.preventDefault(); // 기본 폼 제출 방지
-    const name = document.getElementById("name").value;
-    const id = document.getElementById("id").value;
-    const email = document.getElementById("email").value;
-
-    alert(`입력된 정보:\n이름: ${name}\nID: ${id}\nE-mail: ${email}`);
 });
