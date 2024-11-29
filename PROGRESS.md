@@ -67,4 +67,24 @@
 - 달력 생성 함수 구현(요일 표시 제외 7x7 테이블로 구현),<br/>
 달력 상단에 달력 이동 버튼 추가(```전 달로 이동```/```현재 달력 날짜 표시```/```다음 달로 이동```)([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/03a01a8b8668db1fc36ad0f02067d3efe433aced))
 - 디자인된 구조에 맞게 헤더 구성(flex 방식)([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/e38b1bb9a76479c17a378bb7799a6c2849905a2a))
+```
+캘린더 헤더 구조(버튼 목록) / 버튼 별 담당 인원
+
+<캘린더 헤더>
+            <메뉴버튼 바>
+                <메뉴 버튼>                  - 전문성
+                <메뉴 목록>                  - 전문성
+            <버튼 컨테이너>
+                <달력 컨트롤 바>
+                    <오늘 날짜로 이동>        - 이영준
+                    <전 달 이동>              - 이영준
+                    <현재 달력 년/월 표시>    - 이영준
+                    <다을 달 이동>            - 이영준
+                <월간/주간 달력 변경 바>
+                    <월간 달력>               - 김지훈
+                    <주간 달력>               - 김지훈
+                <스케줄 추가 바>
+                    <스케줄 추가>             - 김지훈
+<캘린더 바디>
+```
 - today 버튼 기능 추가(오늘 날짜의 달력으로 이동)([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/05a51de89e432590a19ea1e61ef40e3c9fe405f6))
