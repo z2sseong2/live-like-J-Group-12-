@@ -48,6 +48,9 @@
 김지성
 
 김지훈
+- 스케쥴을 입력 할 수 있는 페이지 구현 ([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/e82247e154dd4b13e62fb03f3f2eea3db213a5c0))
+- 주간 플랜가져오는 파일 구현, 달력에서 x키눌러서 plan삭제 구현([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/864d662bf062ec213249000fd8fff3a09bdc9c2c))
+- 주간 플랜 파일을 삭제하고 그 파일을 캘린더 파일안에 구현(추가 작업에 용이하도록) ([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/073add47e441b6c64395452ce7170897b7dde524#diff-5f38abb3fad5051291c4f847bda8f2979929e89e4d74fbdafd5de2aebc9c0db2))
 
 전문성
 - 캘린더 메인페이지 좌측 상단 메뉴버튼 생성
