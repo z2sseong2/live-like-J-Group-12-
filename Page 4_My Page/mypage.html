@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Page</title>
+        <link href="./mypage.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="mypage-container">
+            <div class="mypage-header">
+                 <!-- 메뉴 버튼 -->
+                <div class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-box" id="menuBox">
+                    <ul>
+                        <li><button id="profileButton">Profile</button></li>
+                        <li><button id="schedulesButton">Schedules</button></li>
+                        <li><button id="todoListButton">ToDoList</button></li>
+                        <li>
+                            <button id="challengeMapButton">ChallengeMap</button>
+                        </li>
+                        <li><button id="memoButton">Memo</button></li>
+                        <li><button id="guidelineButton">Guideline</button></li>
+                        <li><button id="settingsButton">Settings</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        </div>
+       
+    
+            <!-- 프로필 섹션 -->
+            <section class="profile-section">
+                <div class="avatar-box">
+                    <img
+                        src="https://via.placeholder.com/100"
+                        alt="Avatar"
+                        class="avatar"
+                    />
+                    <h3>나의 아바타 이미지</h3>
+                </div>
+                <div class="progress-buttons">
+                    <button>평균 일일 완주율</button>
+                    <button>평균 일일 완주율</button>
+                    <button>평균 일일 완주율</button>
+                    <button>평균 일일 완주율</button>
+                </div>
+            </section>
+
+            <!-- 정보 입력 섹션 -->
+            <section class="info-section">
+                <img
+                    src="https://via.placeholder.com/150"
+                    alt="Logo"
+                    class="logo"
+                />
+                <form>
+                    <label for="name">Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    />
+
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" placeholder="Enter your ID" />
+
+                    <label for="password">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                    />
+
+                    <label for="phone">Phone Number:</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                    />
+
+                    <label for="email">E-mail:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    />
+
+                    <button type="submit" class="edit-btn">편집</button>
+                </form>
+            </section>
+        </div>
+
+        <script src="./mypage.js"></script>
+    </body>
+</html>
