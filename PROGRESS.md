@@ -51,11 +51,15 @@
 
 [Page 3_Yearly Calendar]
 <br/>
-<img src="images/.png" alt ="menu" width = "500"><br/>
+<img src="images/Yearly Calendar_v1(1).png" alt ="menu" width = "500"><br/>
+<br/>
+<img src="images/Yearly Calendar_v1(2).png" alt ="menu" width = "500"><br/>
 
 [Page 4_My Page]
 <br/>
-<img src="images/.png" alt ="menu" width = "500"><br/>
+<img src="images/My Page_v1(1).png" alt ="menu" width = "500"><br/>
+<br/>
+<img src="images/My Page_v1(2).png" alt ="menu" width = "500"><br/>
 
 
 ## Individual Progress Status
