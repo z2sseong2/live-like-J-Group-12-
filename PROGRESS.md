@@ -41,6 +41,17 @@
 
 <img src="images/localhost_web.jpg" alt ="signup" width = "500"><br/>
 
+[캘린더]
+<br/>
+<img src="images/calendar.png" alt ="calendar" width = "500"><br/>
+
+[메뉴 버튼]
+<br/>
+<img src="images/menu.png" alt ="menu" width = "500"><br/>
+
+
+
+
 ## Individual Progress Status
 <br/>
 
