@@ -118,6 +118,14 @@ Database
     ```bash
     git clone https://github.com/z2sseong2/live-like-J-Group-12-.git
     ```
+2. npm install express
+   ```bash
+   ```
+3. node main.js
+   ```bash
+   ```
+4. web url -> http://localhost:3000/login.html
+   
 ## *Usage*
 
 TBD
