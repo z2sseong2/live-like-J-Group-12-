@@ -53,15 +53,16 @@
 - 주간 플랜 파일을 삭제하고 그 파일을 캘린더 파일안에 구현(추가 작업에 용이하도록) ([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/073add47e441b6c64395452ce7170897b7dde524#diff-5f38abb3fad5051291c4f847bda8f2979929e89e4d74fbdafd5de2aebc9c0db2))
 
 전문성
-- 캘린더 메인페이지 좌측 상단 메뉴버튼 생성
-- 메뉴버튼 클릭시 메뉴리스트 구현 및 메뉴UI 생성
-https://github.com/z2sseong2/live-like-J-Group-12-/commit/794e5f84ed8451dbe049c0855533e71fc0f48242
+- 캘린더 메인페이지 좌측 상단 메뉴버튼 생성([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/d51d0fe796c95b555297b5a6164d6763b8ce3808))
+- 메뉴버튼 클릭시 메뉴리스트 구현 및 메뉴UI 생성([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/794e5f84ed8451dbe049c0855533e71fc0f48242))
+
 
 이수민
-- main.js 파일로 loaclhost port 연결하기 (511642d02d7505d5a50a4fa2118d5b7bc1e70110)<br/>
-- 메인 페이지, 회원가입 페이지 생성(1c683d83d52fba1bf4099cf88cb14a3314473905)<br/>
+- main.js 파일로 loaclhost port 연결하기 ([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/511642d02d7505d5a50a4fa2118d5b7bc1e70110))
+- 메인 페이지, 회원가입 페이지 생성([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/1c683d83d52fba1bf4099cf88cb14a3314473905))
 
 이영준
-- 달력 생성 함수 구현(요일 표시 제외 7x7 테이블로 구현), 달력 상단에 달력 이동 버튼 추가(```전 달로 이동```/```현재 달력 날짜 표시```/```다음 달로 이동```)
-- 디자인된 구조에 맞게 헤더 구성(flex 방식)
-- today 버튼 기능 추가(오늘 날짜의 달력으로 이동)
+- 달력 생성 함수 구현(요일 표시 제외 7x7 테이블로 구현),<br/>
+달력 상단에 달력 이동 버튼 추가(```전 달로 이동```/```현재 달력 날짜 표시```/```다음 달로 이동```)([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/03a01a8b8668db1fc36ad0f02067d3efe433aced))
+- 디자인된 구조에 맞게 헤더 구성(flex 방식)([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/e38b1bb9a76479c17a378bb7799a6c2849905a2a))
+- today 버튼 기능 추가(오늘 날짜의 달력으로 이동)([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/05a51de89e432590a19ea1e61ef40e3c9fe405f6))
