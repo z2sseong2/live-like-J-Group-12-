@@ -10,7 +10,7 @@ body {
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
     /* 자간 */
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
 }
 
 div {
@@ -55,7 +55,7 @@ div {
 .menu-button,
 .menu-button span {
     display: inline-block;
-    transition: all .4s;
+    transition: all 0.4s;
     box-sizing: border-box;
 }
 
@@ -180,7 +180,6 @@ div {
 
 /* 메뉴 바 */
 
-
 /* 캘린더 */
 .calendar {
     position: relative;
@@ -304,7 +303,8 @@ td ul li:hover button.delete-plan-btn {
     table-layout: fixed;
 }
 
-#weekly-plans th, #weekly-plans td {
+#weekly-plans th,
+#weekly-plans td {
     text-align: center;
     border: 1px solid #ddd;
     padding: 1px;
