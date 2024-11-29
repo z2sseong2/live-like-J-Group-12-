@@ -27,11 +27,11 @@
 ### Project Screenshot
 
 
-[메인페이지]
+[Page 1_(1)_Main Page]
 <br/>
 <img src="images/main.jpg" alt="main" width="500"><br/>
 
-[회원가입페이지]
+[Page 1_(2)_SignUp Page]
 <br/>
 <img src="images/signup.jpg" alt ="signup" width = "500"><br/>
 
@@ -41,15 +41,21 @@
 
 <img src="images/localhost_web.jpg" alt ="signup" width = "500"><br/>
 
-[캘린더]
+[Page 2_(1)_Hub Page]
 <br/>
 <img src="images/calendar.png" alt ="calendar" width = "500"><br/>
 
-[메뉴 버튼]
+[Page 2_(2)_Menu Button]
 <br/>
 <img src="images/menu.png" alt ="menu" width = "500"><br/>
 
+[Page 3_Yearly Calendar]
+<br/>
+<img src="images/.png" alt ="menu" width = "500"><br/>
 
+[Page 4_My Page]
+<br/>
+<img src="images/.png" alt ="menu" width = "500"><br/>
 
 
 ## Individual Progress Status
@@ -58,7 +64,12 @@
 
 김지성
 - 로고 제작([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/bbf789cde585b05822526c3cd4688529197091fb))
-- 프로토타입 작성([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/c4f1bb293d40f5d3eb7f6297fa010e45c432a706))([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/f27c37cf2323b17307170d5d0ea27c34cc6bb2e1))([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/4dea823e47a2d6d8210fd191731e8a7777f5f358))
+- 프로토타입 및 플로우차트 작성([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/c4f1bb293d40f5d3eb7f6297fa010e45c432a706))([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/f27c37cf2323b17307170d5d0ea27c34cc6bb2e1))([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/4dea823e47a2d6d8210fd191731e8a7777f5f358))
+- 링크 수정 : Page 1 -> Page 2 전환 위해 Page 1의 window.location.href 수정 / Page 1의 img 링크 수정
+- 메뉴리스트에 Profile 버튼 추가 후 Page 4(My Page) 구현하여 링크 삽입
+- Page 3(Yearly Calendar), Page 4(My Page) 구현 진행중
+- 상단 네비게이션 우측에 로고이미지버튼 추가하고 Page 2로 링크 연결하여 어느 페이지에서든 Hub Page로 이동할 수 있도록 하였으며 이와 작성한 프로토타입을 기반으로 앞으로 프로젝트 진행을 위해 필요한 페이지별 디렉토리(Page5~16) 생성
+([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/305ebea1e05507d64705b6f3d2ca29306038bcbf))
 
 김지훈
 - 스케쥴을 입력 할 수 있는 페이지 구현 ([commit Link](https://github.com/z2sseong2/live-like-J-Group-12-/commit/e82247e154dd4b13e62fb03f3f2eea3db213a5c0))
