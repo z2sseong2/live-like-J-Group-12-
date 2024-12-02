@@ -122,8 +122,8 @@ Database
     <br/>
    <img src="images/npm_install_express.jpg" alt="npm_install_express" width="250"><br/>
 3. node main.js
-   ```bash
-   ```
+   <br/>
+   <img src="images/node_main_js.jpg" alt="npm_install_express" width="250"><br/>
 4. web url -> http://localhost:3000/login.html
    
 ## *Usage*
