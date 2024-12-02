@@ -119,9 +119,8 @@ Database
     git clone https://github.com/z2sseong2/live-like-J-Group-12-.git
     ```
 2. npm install express
-   ```bash
+    <br/>
    <img src="images/npm_install_express.jpg" alt="npm_install_express" width="250"><br/>
-   ```
 3. node main.js
    ```bash
    ```
