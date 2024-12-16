@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const weeklyPlansButton = document.getElementById("weekly-btn"); //주간 planner 이동
     const inputScheduleButton = document.getElementById("inputschedule-btn"); //plan 입력
     const menuBox = document.getElementById("menuBox");
+    const popup = document.getElementById("popup");
+    const popupDateElement = document.getElementById("popup-date");
+    const popupPlansElement = document.getElementById("popup-plans");
+    const closePopupButton = popup.querySelector(".close-btn");
 
     let today = new Date(); //오늘 날짜
     let month = today.getMonth(); //이번 달
@@ -220,4 +224,56 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("settingsButton").addEventListener("click", () => {
         alert("Settings clicked");
     });
+    function openPopup(date) {
+        popupDateElement.textContent = date;
+        popupPlansElement.innerHTML = "";
+
+        const plans = savedPlans[date] || [];
+        plans.forEach((plan, index) => {
+            const li = document.createElement("li");
+            li.textContent = plan;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "x";
+            deleteButton.classList.add("delete-plan-btn");
+            deleteButton.addEventListener("click", () => {
+                deletePlan(date, index);
+            });
+
+            li.appendChild(deleteButton);
+            popupPlansElement.appendChild(li);
+        });
+
+        popup.style.display = "block";
+    }
+
+    // 팝업창 닫기
+    function closePopup() {
+        popup.style.display = "none";
+    }
+
+    // 계획 삭제
+    function deletePlan(date, planIndex) {
+        if (savedPlans[date]) {
+            savedPlans[date].splice(planIndex, 1); // 계획 삭제
+            if (savedPlans[date].length === 0) {
+                delete savedPlans[date]; // 계획이 없으면 해당 날짜 삭제
+            }
+            localStorage.setItem("plans", JSON.stringify(savedPlans)); // 로컬스토리지 업데이트
+            openPopup(date); // 팝업 업데이트
+            updateView(); // 달력 업데이트
+        }
+    }
+
+    // 날짜 클릭 이벤트 추가
+    calendarElement.addEventListener("click", (event) => {
+        const target = event.target.closest("td[data-date]");
+        if (target) {
+            const date = target.getAttribute("data-date");
+            openPopup(date);
+        }
+    });
+
+    // 팝업 닫기 버튼 이벤트
+    closePopupButton.addEventListener("click", closePopup);
 });
