@@ -14,19 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     menuButton.addEventListener("click", () => {
-        // ë©”ë‰´ ë°•ìŠ¤ì˜ í‘œì‹œ ì—¬ë¶€ë¥¼ í† ê¸€
+        // ë©”ë‰´ ë°•ìŠ¤?˜ ?‘œ?‹œ ?—¬ë¶?ë¥? ?† ê¸?
         if (menuBox.style.display === "none" || menuBox.style.display === "") {
-            menuBox.style.display = "block"; // ë©”ë‰´ ë³´ì´ê¸°
+            menuBox.style.display = "block"; // ë©”ë‰´ ë³´ì´ê¸?
         } else {
-            menuBox.style.display = "none"; // ë©”ë‰´ ìˆ¨ê¸°ê¸°
+            menuBox.style.display = "none"; // ë©”ë‰´ ?ˆ¨ê¸°ê¸°
         }
         updateView();
     });
 
-    // ê°ê°ì˜ ë²„íŠ¼ì— ì´ë²¤íŠ¸ ì¶”ê°€ (í•„ìš”ì— ë”°ë¼ ìˆ˜ì • ê°€ëŠ¥)
+    // ê°ê°?˜ ë²„íŠ¼?— ?´ë²¤íŠ¸ ì¶”ê?? (?•„?š”?— ?”°?¼ ?ˆ˜? • ê°??Š¥)
     document.getElementById("profileButton").addEventListener("click", () => {
         alert("Profile clicked");
-        window.location.href = "../Page 4_My Page/mypage.html"; // mypageë¡œ ì´ë™
+        window.location.href = "../Page 4_My Page/mypage.html"; // mypageë¡? ?´?™
     });
     document.getElementById("schedulesButton").addEventListener("click", () => {
         alert("Schedules clicked");
@@ -48,27 +48,27 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("settingsButton").addEventListener("click", () => {
         alert("Settings clicked");
     });
-    // ë¡œê³  ë²„íŠ¼ í´ë¦­ ì‹œ, Page2ë¡œ ì´ë™
+    // ë¡œê³  ë²„íŠ¼ ?´ë¦? ?‹œ, Page2ë¡? ?´?™
     document.getElementById("logoButton").addEventListener("click", () => {
-        window.location.href = "../Page 2_Hub Page/calendar.html";
+        window.location.href = "calendar.html";
     });
 });
 
-// í”„ë¡œí•„ ì„¹ì…˜ì˜ ë²„íŠ¼ í´ë¦­ ì´ë²¤íŠ¸
+// ?”„ë¡œí•„ ?„¹?…˜?˜ ë²„íŠ¼ ?´ë¦? ?´ë²¤íŠ¸
 const progressButtons = document.querySelectorAll(".progress-buttons button");
 progressButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
-        alert(`í‰ê·  ì¼ì¼ ì™„ì£¼ìœ¨ ë²„íŠ¼ ${index + 1} í´ë¦­ë¨!`);
+        alert(`?‰ê·? ?¼?¼ ?™„ì£¼ìœ¨ ë²„íŠ¼ ${index + 1} ?´ë¦??¨!`);
     });
 });
 
-// ì •ë³´ ì„¹ì…˜ í¼ ì œì¶œ ì´ë²¤íŠ¸
+// ? •ë³? ?„¹?…˜ ?¼ ? œì¶? ?´ë²¤íŠ¸
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
-    e.preventDefault(); // ê¸°ë³¸ í¼ ì œì¶œ ë°©ì§€
+    e.preventDefault(); // ê¸°ë³¸ ?¼ ? œì¶? ë°©ì??
     const name = document.getElementById("name").value;
     const id = document.getElementById("id").value;
     const email = document.getElementById("email").value;
 
-    alert(`ì…ë ¥ëœ ì •ë³´:\nì´ë¦„: ${name}\nID: ${id}\nE-mail: ${email}`);
+    alert(`?…? ¥?œ ? •ë³?:\n?´ë¦?: ${name}\nID: ${id}\nE-mail: ${email}`);
 });

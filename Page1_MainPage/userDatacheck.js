@@ -7,19 +7,17 @@ let Data = [];
 Users = JSON.parse(localStorage.getItem("Users")) || [];
 
 loginbtn.addEventListener("click", (e) => {
-    console.log("함수는 들어옴");
     for (let i = 0; i < Users.length; i++) {
         if (
             Users[i].userID === loginID.value &&
             Users[i].userPW === loginPW.value
         ) {
-            console.log("출력 직전");
             e.preventDefault();
-            alert("로그인 성공");
-            window.location.href = "../Page 2_Hub Page/calendar.html";
+            alert("濡쒓?���씤 �꽦??��");
+            window.location.href = "calendar.html";
             return;
         }
     }
     e.preventDefault();
-    alert("로그인 실패");
+    alert("濡쒓?���씤 �떎�뙣");
 });
