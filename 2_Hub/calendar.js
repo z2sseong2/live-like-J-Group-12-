@@ -227,25 +227,69 @@ document.addEventListener("DOMContentLoaded", () => {
     function openPopup(date) {
         popupDateElement.textContent = date;
         popupPlansElement.innerHTML = "";
-
+    
         const plans = savedPlans[date] || [];
         plans.forEach((plan, index) => {
             const li = document.createElement("li");
             li.textContent = plan;
-
+    
+            // v 버튼 (완료)
+            const completeButton = document.createElement("button");
+            completeButton.textContent = "v";
+            completeButton.classList.add("complete-plan-btn");
+            completeButton.addEventListener("click", () => {
+                markAsComplete(date, index);
+            });
+    
+            // x 버튼 (삭제)
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "x";
             deleteButton.classList.add("delete-plan-btn");
             deleteButton.addEventListener("click", () => {
                 deletePlan(date, index);
             });
-
+    
+            li.style.position = "relative"; // 상대 위치 설정
             li.appendChild(deleteButton);
+            li.appendChild(completeButton); // x 버튼 왼쪽에 v 버튼 추가
             popupPlansElement.appendChild(li);
         });
-
+    
         popup.style.display = "block";
+        updateCompletionRate(date);
     }
+    
+    
+    // 완료 항목 표시 및 저장
+function markAsComplete(date, planIndex) {
+    if (!savedPlans[date][planIndex].includes("(Completed)")) {
+        savedPlans[date][planIndex] += " (Completed)";
+    }
+    localStorage.setItem("plans", JSON.stringify(savedPlans));
+    openPopup(date);
+    updateCompletionRate(date);
+}
+    
+    
+    // 완료율 업데이트 함수
+    function updateCompletionRate(date) {
+        const plans = savedPlans[date] || [];
+        const completedCount = plans.filter(plan => plan.includes("(Completed)")).length;
+        const totalCount = plans.length;
+    
+        const completionRate = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+    
+        const progressContainer = document.getElementById("progress-container");
+        const progressBar = document.getElementById("progress-bar");
+    
+        if (totalCount > 0) {
+            progressBar.value = completionRate;
+            progressContainer.style.display = "block";
+        } else {
+            progressContainer.style.display = "none";
+        }
+    }
+    
 
     // 팝업창 닫기
     function closePopup() {
@@ -277,3 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 팝업 닫기 버튼 이벤트
     closePopupButton.addEventListener("click", closePopup);
 });
+
+
+
+
