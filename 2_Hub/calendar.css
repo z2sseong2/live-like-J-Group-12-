@@ -382,3 +382,68 @@ td ul li:hover button.delete-plan-btn {
 #popup .close-btn:hover {
     background-color: #0056b3;
 }
+
+/* 개인 프로필 버튼 추가 */
+.profile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 20px; /* + 버튼과 간격을 두기 위함 */
+}
+
+.profile-button:hover {
+    background-color: #0056b3;
+}
+
+.profile-button img {
+    width: 24px;
+    height: 24px;
+}
+
+/* 개인 프로필 버튼의 팝업 */
+#profile-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 100;
+    display: none; /* 기본적으로 숨김 */
+    width: 300px;
+    border-radius: 8px;
+}
+
+#profile-popup h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#profile-popup p {
+    text-align: center;
+    margin: 15px 0;
+}
+
+#profile-popup .close-btn {
+    display: block;
+    margin: 10px auto 0;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#profile-popup .close-btn:hover {
+    background-color: #0056b3;
+}

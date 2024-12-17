@@ -283,3 +283,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // 팝업 닫기 버튼 이벤트
     closePopupButton.addEventListener("click", closePopup);
 });
+
+
+// 프로필 팝업 열기
+document.getElementById("profile-icon-btn").addEventListener("click", function() {
+    document.getElementById("profile-popup").style.display = "block";
+});
+
+// 프로필 팝업 닫기
+document.getElementById("close-profile-popup").addEventListener("click", function() {
+    document.getElementById("profile-popup").style.display = "none";
+});
