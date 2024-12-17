@@ -160,7 +160,7 @@ setUserEM.onkeyup = function () {
 setjoinbtn.addEventListener("click", (e) => {
     if (!canid || !canpw || !canpwCf || !canPN || !canEM) {
         alert("정보를 다시 입력하세요");
-
+        window.location.reload();
         return;
     }
     e.preventDefault();
@@ -178,6 +178,6 @@ setjoinbtn.addEventListener("click", (e) => {
     localStorage.setItem("Users", JSON.stringify(Users));
 
     alert("회원가입 성공!");
-    window.location.href = "calendar.html";
+    window.location.href = "/calendar.html";
 
 });

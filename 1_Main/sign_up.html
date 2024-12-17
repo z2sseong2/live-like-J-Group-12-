@@ -6,16 +6,16 @@
         <link rel="stylesheet" href="signup_style.css" />
     </head>
     <body>
-        <div class="logo horizontal">
-            <!--
-			<button class = "button_login" onClick = "location.href ='login.html'"s>LOGIN</button>
-			-->
-            <img src="logo_2.jpg" />
-        </div>
         <div class="signup horizontal">
+            
+            <div class="logo">
+                <a href="login.html">
+                    <img src="logo_2.jpg" alt="Logo" />
+                </a>
+            </div>
+            <!--회원가입 항목들-->
+
             <form method="post">
-                <h2>sign up</h2>
-                <!--회원가입 항목들-->
 
                 <fieldset>
                     <strong>NAME</strong>
@@ -102,7 +102,7 @@
                 <!--가입 신청 버튼-->
                 <div class="join_btn">
                     <button
-                        type="submit"
+                        type="button"
                         name="join button"
                         style="
                             cursor: pointer;
