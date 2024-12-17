@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupDateElement = document.getElementById("popup-date");
     const popupPlansElement = document.getElementById("popup-plans");
     const closePopupButton = popup.querySelector(".close-btn");
+    
 
     let today = new Date(); //오늘 날짜
     let month = today.getMonth(); //이번 달
@@ -220,6 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById("challengeMapButton")
         .addEventListener("click", () => {
             alert("ChallengeMap clicked");
+            window.location.href = "./completion-rate.html";    
         });
     document.getElementById("memoButton").addEventListener("click", () => {
         alert("Memo clicked");
@@ -267,34 +269,37 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
     // 완료 항목 표시 및 저장
-function markAsComplete(date, planIndex) {
-    if (!savedPlans[date][planIndex].includes("(Completed)")) {
-        savedPlans[date][planIndex] += " (Completed)";
-    }
-    localStorage.setItem("plans", JSON.stringify(savedPlans));
-    openPopup(date);
-    updateCompletionRate(date);
-}
+    function markAsComplete(date, planIndex) {
+        if (!savedPlans[date][planIndex].includes("(Completed)")) {
+            savedPlans[date][planIndex] += " (Completed)";
+        }
+        localStorage.setItem("plans", JSON.stringify(savedPlans));
+        openPopup(date);
+        updateCompletionRate(date);
+    }   
     
     
-    // 완료율 업데이트 함수
     function updateCompletionRate(date) {
         const plans = savedPlans[date] || [];
         const completedCount = plans.filter(plan => plan.includes("(Completed)")).length;
         const totalCount = plans.length;
-    
+
         const completionRate = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
-    
+
         const progressContainer = document.getElementById("progress-container");
         const progressBar = document.getElementById("progress-bar");
-    
+
         if (totalCount > 0) {
             progressBar.value = completionRate;
             progressContainer.style.display = "block";
         } else {
             progressContainer.style.display = "none";
         }
+
+        // 전체 완료율 계산 및 저장
+        calculateOverallCompletionRate();
     }
+
     
 
     // 팝업창 닫기
@@ -326,8 +331,20 @@ function markAsComplete(date, planIndex) {
 
     // 팝업 닫기 버튼 이벤트
     closePopupButton.addEventListener("click", closePopup);
+
+    function calculateOverallCompletionRate() {
+        const allPlans = Object.values(savedPlans).flat(); // 모든 날짜의 계획을 하나의 배열로 합침
+        const totalPlans = allPlans.length; // 전체 계획 개수
+        const completedPlans = allPlans.filter(plan => plan.includes("(Completed)")).length; // 완료된 계획 개수
+
+        const overallRate = totalPlans > 0 ? Math.round((completedPlans / totalPlans) * 100) : 0;
+        localStorage.setItem("completionRate", overallRate); // 완료율을 로컬 스토리지에 저장
+        return overallRate;
+    }
+
 });
 
+    
 
 
 
