@@ -1,73 +1,59 @@
-// 로컬 스토리지에서 계획 데이터 불러와 계산
-const savedPlans = JSON.parse(localStorage.getItem("plans")) || {};
-let totalPlans = 0;
-let completedPlans = 0;
-
-// 전체 작업 및 완료된 작업 수 계산
-Object.values(savedPlans).forEach(plans => {
-    totalPlans += plans.length;
-    completedPlans += plans.filter(plan => plan.includes("(Completed)")).length;
-});
-
-// Completion Rate 계산
-const completionRate = totalPlans > 0 ? Math.round((completedPlans / totalPlans) * 100) : 0;
-
-// HTML에 표시
-    document.getElementById("total-tasks").textContent = `Total Tasks: ${totalPlans}`;
-    document.getElementById("completed-tasks").textContent = `Completed Tasks: ${completedPlans}`;
-    document.getElementById("completion-rate").textContent = `Completion Rate: ${completionRate}%`;
-    document.getElementById("progress-bar").style.width = `${completionRate}%`;
-
 document.addEventListener("DOMContentLoaded", () => {
-    const menuButton = document.getElementById("menuButton"); // 메뉴버튼
-    const menuBox = document.getElementById("menuBox");
+    const scheduleForm = document.getElementById("schedule-form");
 
-    function updateView() {
-        if (viewMode === "month") {
-            updateHeader();
-            generateCalendar(month, year);
-        } else if (viewMode === "weekly") {
-            generateWeeklyView();
+    scheduleForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // 입력 값 가져오기
+        const startDate = document.getElementById("start-date").value;
+        const endDate = document.getElementById("end-date").value;
+        const schedule = document.getElementById("schedule").value;
+        const category = document.getElementById("category").value; // 카테고리 값 가져오기
+
+        // 필드가 비어있으면 알림
+        if (!startDate || !endDate || !schedule || !category) {
+            alert("Please fill in all fields.");
+            return;
         }
-    }
 
-    menuButton.addEventListener("click", () => {
-        // 메뉴 박스의 표시 여부를 토글
-        if (menuBox.style.display === "none" || menuBox.style.display === "") {
-            menuBox.style.display = "block"; // 메뉴 보이기
-        } else {
-            menuBox.style.display = "none"; // 메뉴 숨기기
+        const savedPlans = JSON.parse(localStorage.getItem("plans")) || {};
+
+        // 날짜 범위를 생성
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        // 시작 날짜가 종료 날짜보다 클 경우
+        if (start > end) {
+            alert("Start date cannot be later than end date.");
+            return;
         }
-        updateView();
-    });
 
-    // 각각의 버튼에 이벤트 추가 (필요에 따라 수정 가능)
-    document.getElementById("profileButton").addEventListener("click", () => {
-        alert("Profile clicked");
-        window.location.href = "../Page 4_My Page/mypage.html"; // mypage로 이동
-    });
-    document.getElementById("schedulesButton").addEventListener("click", () => {
-        alert("Schedules clicked");
-    });
-    document.getElementById("todoListButton").addEventListener("click", () => {
-        alert("ToDoList clicked");
-    });
-    document
-        .getElementById("challengeMapButton")
-        .addEventListener("click", () => {
-            alert("ChallengeMap clicked");
-        });
-    document.getElementById("memoButton").addEventListener("click", () => {
-        alert("Memo clicked");
-    });
-    document.getElementById("guidelineButton").addEventListener("click", () => {
-        alert("Guideline clicked");
-    });
-    document.getElementById("settingsButton").addEventListener("click", () => {
-        alert("Settings clicked");
-    });
-    // 로고 버튼 클릭 시, Page2로 이동
-    document.getElementById("logoButton").addEventListener("click", () => {
-        window.location.href = "../Page 2_Hub Page/calendar.html";
+        let current = new Date(start);
+
+        while (current <= end) {
+            // 날짜를 `yyyy-mm-dd` 형식으로 포맷
+            const formattedDate = `${current.getFullYear()}-${String(
+                current.getMonth() + 1
+            ).padStart(2, "0")}-${String(current.getDate()).padStart(2, "0")}`;
+
+            // 해당 날짜에 스케줄 저장
+            if (!savedPlans[formattedDate]) {
+                savedPlans[formattedDate] = [];
+            }
+
+            // 스케줄과 카테고리 정보를 함께 저장
+            savedPlans[formattedDate].push({ text: schedule, category });
+
+            // 다음 날짜로 이동
+            current.setDate(current.getDate() + 1);
+        }
+
+        // 로컬 스토리지에 저장
+        localStorage.setItem("plans", JSON.stringify(savedPlans));
+
+        // 폼 초기화
+        scheduleForm.reset();
+
+        alert("Schedule added successfully!");
     });
 });

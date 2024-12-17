@@ -8,25 +8,37 @@
 </head>
 <body>
     <div class="completion-container">
-        <h1>🎯 Completion Rates</h1>
-
-        <!-- Navigation Buttons -->
-        <div class="nav-buttons">   
+        <h2>🎯 Completion Rates</h2>
+        <!-- 카테고리 선택 박스 -->
+        <select id="category-select">
+            <option value="major">전공공부</option>
+            <option value="self-study">개인공부</option>
+            <option value="assignment">과제</option>
+            <option value="work">일(알바)</option>
+            <option value="leisure">여가</option>
+            <option value="others">기타</option>
+        </select>
+        <div>
             <button id="today-btn">Today</button>
             <button id="month-btn">Month</button>
             <button id="year-btn">Year</button>
         </div>
-
-        <!-- Data Display -->
-        <p id="total-tasks">Total Tasks: 0</p>
-        <p id="completed-tasks">Completed Tasks: 0</p>
-        <p id="completion-rate">Completion Rate: 0%</p>
-
-        <!-- Progress Bar -->
+        <p>Total Tasks: <span id="total-tasks">0</span></p>
+        <p>Completed Tasks: <span id="completed-tasks">0</span></p>
+        <p>Completion Rate: <span id="completion-rate">0%</span></p>
         <div class="progress-container">
-            <div id="progress-bar"></div>
+            <div id="progress-bar" class="progress-bar"></div>
         </div>
     </div>
+    
+    <!-- Back Button -->
+    <div class="back-btn-container">
+        <button id="back-btn">Back</button>
+    </div>
+
+
+
+    
     <script src="completion-rate.js"></script>
 </body>
 </html>

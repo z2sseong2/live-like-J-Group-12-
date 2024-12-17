@@ -55,3 +55,24 @@ body {
 .nav-buttons button:hover {
     background-color: #0056b3;
 }
+/* Back 버튼 스타일 */
+.back-btn-container {
+    text-align: left; /* 왼쪽 정렬 */
+    margin-top: 10px; /* 위쪽 여백 */
+    margin-left: 20px; /* 왼쪽 여백 */
+}
+
+#back-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#back-btn:hover {
+    background-color: darkgray;
+}
