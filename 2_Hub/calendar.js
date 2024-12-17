@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const calendarElement = document.getElementById("calendar"); //캘린더
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupDateElement = document.getElementById("popup-date");
     const popupPlansElement = document.getElementById("popup-plans");
     const closePopupButton = popup.querySelector(".close-btn");
-    
 
     let today = new Date(); //오늘 날짜
     let month = today.getMonth(); //이번 달
@@ -45,74 +45,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 달력 생성 함수
     function generateCalendar(month, year) {
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const firstDay = new Date(year, month, 1).getDay();
-        const prevMonthDays = new Date(year, month, 0).getDate();
-    
+        const daysInMonth = new Date(year, month + 1, 0).getDate(); // 이번 달 마지막 날짜
+        const firstDay = new Date(year, month, 1).getDay(); // 이번 달 1일 요일
+        const prevMonthDays = new Date(year, month, 0).getDate(); // 전 달 마지막 날짜
+
         const savedPlans = JSON.parse(localStorage.getItem("plans")) || {};
-    
+
+        // 달력 구조 생성(테이블)
         let calendarHTML = "<table>";
-        calendarHTML += '<tr class="tb-head"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
-    
+        calendarHTML +=
+            '<tr class="tb-head"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+
         let date = 1;
         let nextMonthDate = 1;
-    
+
         for (let i = 0; i < 6; i++) {
             calendarHTML += '<tr class="tb-body">';
             for (let j = 0; j < 7; j++) {
-                const currentDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(date).padStart(2, "0")}`;
-                const plans = savedPlans[currentDate] || [];
-    
                 if (i === 0 && j < firstDay) {
-                    calendarHTML += `<td class="blurred">${prevMonthDays - firstDay + j + 1}</td>`;
+                    // 전 달(흐리게)
+                    const prevDate = prevMonthDays - firstDay + j + 1;
+                    calendarHTML += `<td class="blurred">${prevDate}</td>`;
                 } else if (date > daysInMonth) {
+                    // 다음 달(흐리게)
                     calendarHTML += `<td class="blurred">${nextMonthDate}</td>`;
                     nextMonthDate++;
                 } else {
-                    const planHTML = plans
-                        .map(plan => {
-                            const text = plan.text || "No Title"; // 스케줄 텍스트
-                            const color = getCategoryColor(plan.category); // 카테고리 색상
-                            return `<div style="color: ${color}; font-size: 0.8em;">${text}</div>`;
-                        })
-                        .join("");
-    
-                    calendarHTML += `<td data-date="${currentDate}">
-                        <div>${date}</div>
-                        ${planHTML}
-                    </td>`;
+                    // 이번 달
+                    //오늘 날짜 찾기
+                    const isToday =
+                        date === today.getDate() &&
+                        month === today.getMonth() &&
+                        year === today.getFullYear();
+                    const currentDate = `${year}-${String(month + 1).padStart(
+                        2,
+                        "0"
+                    )}-${String(date).padStart(2, "0")}`;
+                    const plans = savedPlans[currentDate] || [];
+
+                    calendarHTML += `<td class="tb-day ${
+                        isToday ? "current-day" : ""
+                    }" data-date="${currentDate}">
+                                        <div>${date}</div>
+                                        ${plans
+                                            .map(
+                                                (plan, index) =>
+                                                    `<div class="plan">${plan}</div>`
+                                            )
+                                            .join("")}
+                                     </td>`;
                     date++;
                 }
             }
             calendarHTML += "</tr>";
         }
         calendarHTML += "</table>";
-        document.getElementById("calendar").innerHTML = calendarHTML;
+        calendarElement.innerHTML = calendarHTML;
     }
-    
-    
-    // 카테고리별 색상 반환 함수
-    function getCategoryColor(category) {
-        switch (category) {
-            case "major":
-                return "red";
-            case "self-study":
-                return "blue";
-            case "assignment":
-                return "yellow";
-            case "work":
-                return "green";
-            case "leisure":
-                return "purple";
-            case "others":
-                return "gray";
-            default:
-                return "black";
-        }
-    }
-    
-    
-    
 
 
     /*  updateView로통합
@@ -120,43 +109,39 @@ document.addEventListener("DOMContentLoaded", () => {
         updateHeader();
         generateCalendar(month, year);
     }*/
-        function generateWeeklyView() {
-            const startOfWeek = new Date(today);
-            startOfWeek.setDate(today.getDate() - today.getDay()); // 주 시작일 계산
-        
-            let weeklyHTML = '<table id="weekly-plans"><thead><tr>';
-            ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach((day) => {
-                weeklyHTML += `<th>${day}</th>`;
-            });
-            weeklyHTML += "</tr></thead><tbody><tr>";
-        
-            for (let i = 0; i < 7; i++) {
-                const currentDate = new Date(startOfWeek);
-                currentDate.setDate(startOfWeek.getDate() + i);
-                const dateString = currentDate.toISOString().split("T")[0];
-        
-                const plans = savedPlans[dateString] || []; // 저장된 계획 가져오기
-        
-                weeklyHTML += `<td>
-                    ${
-                        plans.length > 0
-                            ? `<ul>${plans
-                                  .map(
-                                      (plan) => `<li style="color: ${getCategoryColor(plan.category)};">
-                                                    ${plan.text || "No Title"}
-                                                 </li>`
-                                  )
-                                  .join("")}</ul>`
-                            : "<div> </div>" // 계획이 없으면 "No plans" 표시
-                    }
-                </td>`;
-            }
-            weeklyHTML += "</tr></tbody></table>";
-        
-            calendarElement.innerHTML = weeklyHTML;
+    function generateWeeklyView() {
+        const startOfWeek = new Date(today);
+
+        startOfWeek.setDate(today.getDate() - today.getDay()); // 주 시작일 계산
+
+        let weeklyHTML = '<table id="weekly-plans"><thead><tr>';
+        ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach((day) => {
+            weeklyHTML += `<th>${day}</th>`;
+        });
+        weeklyHTML += "</tr></thead><tbody><tr>";
+
+        for (let i = 0; i < 7; i++) {
+            const currentDate = new Date(startOfWeek);
+            currentDate.setDate(startOfWeek.getDate() + i);
+            const dateString = currentDate.toISOString().split("T")[0];
+
+            const plans = savedPlans[dateString] || []; // 저장된 계획 가져오기
+
+            weeklyHTML += `<td>
+                ${
+                    plans.length > 0
+                        ? `<ul>${plans
+                              .map((plan) => `<li>${plan}</li>`)
+                              .join("")}</ul>`
+                        : "<div></div>"
+
+                } <!-- 계획이 없으면 공백 -->
+            </td>`;
         }
-        
-        
+        weeklyHTML += "</tr></tbody></table>";
+
+        calendarElement.innerHTML = weeklyHTML;
+    }
     function updateView() {
         if (viewMode === "month") {
             updateHeader();
@@ -236,7 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById("challengeMapButton")
         .addEventListener("click", () => {
             alert("ChallengeMap clicked");
-            window.location.href = "./completion-rate.html";    
         });
     document.getElementById("memoButton").addEventListener("click", () => {
         alert("Memo clicked");
@@ -250,77 +234,25 @@ document.addEventListener("DOMContentLoaded", () => {
     function openPopup(date) {
         popupDateElement.textContent = date;
         popupPlansElement.innerHTML = "";
-    
+
         const plans = savedPlans[date] || [];
         plans.forEach((plan, index) => {
             const li = document.createElement("li");
-            li.textContent = plan.text || "No Title";
-    
-            // 완료된 항목에 (Completed) 표시
-            if (plan.completed) {
-                li.textContent += " (Completed)";
-                li.style.textDecoration = "line-through"; // 완료된 항목에 줄 긋기
-            }
-    
-            // v 버튼 (완료)
-            const completeButton = document.createElement("button");
-            completeButton.textContent = "✔";
-            completeButton.classList.add("complete-plan-btn");
-            completeButton.addEventListener("click", () => markAsComplete(date, index));
-    
-            // x 버튼 (삭제)
+            li.textContent = plan;
+
             const deleteButton = document.createElement("button");
-            deleteButton.textContent = "✖";
+            deleteButton.textContent = "x";
             deleteButton.classList.add("delete-plan-btn");
-            deleteButton.addEventListener("click", () => deletePlan(date, index));
-    
-            li.appendChild(completeButton);
+            deleteButton.addEventListener("click", () => {
+                deletePlan(date, index);
+            });
+
             li.appendChild(deleteButton);
             popupPlansElement.appendChild(li);
         });
-    
-        popup.style.display = "block";
-        updateCompletionRate(date);
-    }
-    
-    
-    
-    // 완료 항목 표시 및 저장
-    function markAsComplete(date, planIndex) {
-        const plan = savedPlans[date][planIndex];
-        if (plan && !plan.completed) {
-            plan.completed = true; // 완료 상태 추가
-        }
-        localStorage.setItem("plans", JSON.stringify(savedPlans));
-        openPopup(date); // 팝업 업데이트
-        updateCompletionRate(date); // 완료율 업데이트
-        updateView(); // 달력 업데이트
-    }
-    
-    
-    
-    function updateCompletionRate(date) {
-        const plans = savedPlans[date] || [];
-        const completedCount = plans.filter(plan => plan.completed).length; // 완료된 항목 카운트
-        const totalCount = plans.length;
-    
-        const completionRate = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
-    
-        const progressContainer = document.getElementById("progress-container");
-        const progressBar = document.getElementById("progress-bar");
-    
-        if (totalCount > 0) {
-            progressBar.value = completionRate;
-            progressContainer.style.display = "block";
-        } else {
-            progressContainer.style.display = "none";
-        }
-    
-        calculateOverallCompletionRate();
-    }
-    
 
-    
+        popup.style.display = "block";
+    }
 
     // 팝업창 닫기
     function closePopup() {
@@ -351,21 +283,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 팝업 닫기 버튼 이벤트
     closePopupButton.addEventListener("click", closePopup);
-
-    function calculateOverallCompletionRate() {
-        const allPlans = Object.values(savedPlans).flat(); // 모든 날짜의 계획을 하나의 배열로 합침
-        const totalPlans = allPlans.length;
-        const completedPlans = allPlans.filter(plan => plan.completed).length;
-    
-        const overallRate = totalPlans > 0 ? Math.round((completedPlans / totalPlans) * 100) : 0;
-        localStorage.setItem("completionRate", overallRate); // 완료율 저장
-        return overallRate;
-    }
-    
-
 });
 
-    
 
+// 프로필 팝업 열기
+document.getElementById("profile-icon-btn").addEventListener("click", function() {
+    document.getElementById("profile-popup").style.display = "block";
+});
 
-
+// 프로필 팝업 닫기
+document.getElementById("close-profile-popup").addEventListener("click", function() {
+    document.getElementById("profile-popup").style.display = "none";
+});

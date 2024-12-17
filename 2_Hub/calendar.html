@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -51,6 +52,9 @@
                     <div class="schedule-bar">
                         <button id="inputschedule-btn">+</button>
                     </div>
+                    <div class="profile-bar">
+                        <button id="profile-icon-btn">👤</button> <!-- 아이콘 버튼 추가 -->
+                    </div>
                 </div>
             </div>
             <!-- 달력 바디 -->
@@ -61,17 +65,21 @@
                 <div id="calendar"></div>
             </div>
         </div>
+
+        <div id="profile-popup">
+            <h3>Personal Profile</h3>
+            <button class="close-btn" id="close-profile-popup">Close</button>
+        </div>
+
+
         <!-- 팝업창 -->
         <div id="popup">
             <h3 id="popup-date"></h3>
             <ul id="popup-plans"></ul>
-            <div class="progress-container" id="progress-container" style="display:none;">
-                <label>Completion Rate</label>
-                <progress id="progress-bar" value="0" max="100"></progress>
-            </div>
             <button class="close-btn">Close</button>
         </div>
 
         <script src="./calendar.js"></script>
     </body>
 </html>
+
