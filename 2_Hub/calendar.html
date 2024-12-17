@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Monthly Calendar</title>
+        <link href="./calendar.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="calendar-container">
+            <!-- 달력 상단 헤더 -->
+            <div class="calendar-header">
+                <!-- 메뉴 버튼 -->
+                <div class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-box" id="menuBox">
+                    <ul>
+                        <li><button id="profileButton">Profile</button></li>
+                        <li><button id="schedulesButton">Schedules</button></li>
+                        <li><button id="todoListButton">ToDoList</button></li>
+                        <li>
+                            <button id="challengeMapButton">
+                                ChallengeMap
+                            </button>
+                        </li>
+                        <li><button id="memoButton">Memo</button></li>
+                        <li><button id="guidelineButton">Guideline</button></li>
+                        <li><button id="settingsButton">Settings</button></li>
+                    </ul>
+                </div>
+
+                <!-- 버튼 컨테이너(메뉴 버튼을 제외한 나머지 헤더) -->
+                <div class="button-bar">
+                    <!-- 달력 컨트롤 바 -->
+                    <div class="month-bar">
+                        <button id="today-btn">today</button>
+                        <button id="prev-month-btn">&lt;</button>
+                        <div id="current-month"></div>
+                        <button id="next-month-btn">&gt;</button>
+                    </div>
+                    <!-- 월간/주간 달력 변경 바 -->
+                    <div class="weekly-change-bar">
+                        <button id="month-btn">Month</button>
+                        <button id="weekly-btn">Weekly</button>
+                    </div>
+                    <!-- plan 추가 바-->
+                    <div class="schedule-bar">
+                        <button id="inputschedule-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 달력 바디 -->
+            <div class="calendar-body">
+                <!-- 메뉴 바 -->
+                <div class="menu-list"></div>
+                <!-- 달력 -->
+                <div id="calendar"></div>
+            </div>
+        </div>
+        <!-- 팝업창 -->
+        <div id="popup">
+            <h3 id="popup-date"></h3>
+            <ul id="popup-plans"></ul>
+            <button class="close-btn">Close</button>
+        </div>
+
+        <script src="./calendar.js"></script>
+    </body>
+</html>
