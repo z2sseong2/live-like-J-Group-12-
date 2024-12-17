@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Yearly Calendar</title>
+        <link href="./yearlycalendar.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="page-container">
+            <div class="page-header">
+                <!-- 메뉴 버튼 -->
+                <div class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-box" id="menuBox">
+                    <ul>
+                        <li><button id="profileButton">Profile</button></li>
+                        <li><button id="schedulesButton">Schedules</button></li>
+                        <li><button id="todoListButton">ToDoList</button></li>
+                        <li>
+                            <button id="challengeMapButton">
+                                ChallengeMap
+                            </button>
+                        </li>
+                        <li><button id="memoButton">Memo</button></li>
+                        <li><button id="guidelineButton">Guideline</button></li>
+                        <li><button id="settingsButton">Settings</button></li>
+                    </ul>
+                </div>
+                <!-- HERE -->
+                <!-- 현재 년도 버튼 -->
+                <button id="currentYearButton" class="year-button">2024</button>
+
+                <!-- 로고 버튼 -->
+                <button id="logoButton" class="logo-button">
+                    <img
+                        src="../images/logo_2.jpg"
+                        alt="Logo"
+                        class="logo-img"
+                    />
+                </button>
+            </div>
+
+            <div id="overlay" class="overlay">
+                <div class="year-selection">
+                    <h3>Select Year</h3>
+                    <div class="year-navigation">
+                        <button id="prev-decade" class="nav-button">
+                            &lt;
+                        </button>
+                        <span id="current-decade">2020 - 2029</span>
+                        <button id="next-decade" class="nav-button">
+                            &gt;
+                        </button>
+                    </div>
+                    <div class="year-options"></div>
+                </div>
+            </div>
+        </div>
+        <script src="./yearlycalendar.js"></script>
+    </body>
+</html>

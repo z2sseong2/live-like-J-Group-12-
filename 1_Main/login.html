@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>live-like-j Login</title>
+        <link rel="stylesheet" href="login_style.css" />
+    </head>
+    <body>
+        <div class="horizontal">
+            <div class="logo_img">
+                <img src="logo_2.jpg" />
+            </div>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>live-like-j Login</title>
-    <link rel="stylesheet" href="login_style.css" />
-</head>
-
-<body>
-    <div class="horizontal">
-        <div class="logo_img">
-            <img src="/logo_2.jpg" />
-        </div>
-
-        <div class="login_screen">
-            <!-- 로그인 하는 곳 -->
-            <div class="login_form">
-                <form method="post">
-                    <input type="text" id="id" name="id" class="login_element" placeholder="ID" />
-                    <input type="password" id="pw" name="password" class="login_element" placeholder="PASSWORD" />
-                    <input type="submit" id="login-btn" value="LOGIN" class="login_btn" />
-                    <input type="button" value="SIGN UP" class="join_btn" onClick="location.href ='sign_up.html'" />
-                </form>
-                <div class="links">
-                    <a href="#">Forgot your password?</a>
+            <div class="login_screen">
+                <!-- 로그?�� ?��?�� �? -->
+                <div class="login_form">
+                    <form method="post">
+                        <input
+                            type="text"
+                            id="id"
+                            name="id"
+                            class="login_element"
+                            placeholder="ID"
+                        />
+                        <input
+                            type="password"
+                            id="pw"
+                            name="password"
+                            class="login_element"
+                            placeholder="PASSWORD"
+                        />
+                        <input
+                            type="submit"
+                            id="login-btn"
+                            value="LOGIN"
+                            class="login_btn"
+                        />
+                        <input
+                            type="button"
+                            value="SIGN UP"
+                            class="join_btn"
+                            onClick="location.href ='sign_up.html'"
+                        />
+                    </form>
+                    <div class="links">
+                        <a href="id_pw_check.html">Forgot your id or pw?</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="userDatacheck.js"></script>
-</body>
-
+        <script src="userDatacheck.js"></script>
+    </body>
 </html>
+

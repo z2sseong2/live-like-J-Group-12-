@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     const calendarElement = document.getElementById("calendar"); //캘린더
     const menuButton = document.getElementById("menuButton"); //메뉴 버튼
     const todayButton = document.getElementById("today-btn"); //오늘 날짜로 달력 이동
@@ -101,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         calendarElement.innerHTML = calendarHTML;
     }
 
+
     /*  updateView로통합
     function updateCalendar() {
         updateHeader();
@@ -108,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }*/
     function generateWeeklyView() {
         const startOfWeek = new Date(today);
+
         startOfWeek.setDate(today.getDate() - today.getDay()); // 주 시작일 계산
 
         let weeklyHTML = '<table id="weekly-plans"><thead><tr>';
@@ -120,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentDate = new Date(startOfWeek);
             currentDate.setDate(startOfWeek.getDate() + i);
             const dateString = currentDate.toISOString().split("T")[0];
+
             const plans = savedPlans[dateString] || []; // 저장된 계획 가져오기
 
             weeklyHTML += `<td>
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
                               .map((plan) => `<li>${plan}</li>`)
                               .join("")}</ul>`
                         : "<div></div>"
+
                 } <!-- 계획이 없으면 공백 -->
             </td>`;
         }
@@ -190,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     menuButton.addEventListener("click", () => {
+
         // 메뉴 박스의 표시 여부를 토글
         if (menuBox.style.display === "none" || menuBox.style.display === "") {
             menuBox.style.display = "block"; // 메뉴 보이기
