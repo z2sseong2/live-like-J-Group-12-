@@ -15,7 +15,7 @@ loginbtn.addEventListener("click", (e) => {
 
             e.preventDefault();
             alert("로그인 성공");
-            window.location.href = "../Page 2_Hub Page/calendar.html";
+            window.location.href = "calendar.html";
             return;
         }
     }

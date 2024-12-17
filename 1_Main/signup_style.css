@@ -1,67 +1,64 @@
+/* 로고 */
 .logo {
     background-color: #f3f2f2;
-    width: 20%;
+    width: 40%;
     height: 100px;
     padding: 10px;
     border-radius: 15px;
     margin: 0 auto;
-    margin-right: 420px;
 }
 
-
+/* 이미지 */
 img {
-    width : 100%;
-    height : 100%;
+    width: 100%;
+    height: 100%;
 }
 
-.horizontal{
-    justify-content: flex-start;
-}
-
+/* 기본 스타일 */
 * {
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
     border-radius: 10px;
     font-size: 16px;
-  }
+}
 
 body {
     margin: 0;
     background-color: #f3f2f2;
 }
+
+/* 회원가입 영역 */
 .signup {
     display: flex;
     flex-direction: column;
-    width: 50%; 
+    width: 500px; /* 고정된 너비로 설정 */
     margin: auto;
     margin-bottom: 20px;
-    align-items: stretch; 
+    align-items: stretch;
 }
 
-.signup strong{
+/* 폼 강제 왼쪽 정렬 */
+.signup strong {
     display: block;
 }
-.signup h2{
+
+.signup h2 {
     text-align: center;
 }
-.userpw{
-    background-size: 50px;
-}
-.userpw-confirm{
-    background-size: 30px;
-}
 
-input{
+input {
     color: rgba(80, 15, 15, 0.5);
 }
+
 input::placeholder {
     color: rgba(80, 15, 15, 0.5);
 }
 
+/* 입력칸 */
 .login_form {
     display: block;
-    width: 80%; 
-    max-width: 45%;
+    width: 100%; /* 부모 영역에 맞게 가득 채우기 */
+    max-width: 500px; /* 최대 너비 500px로 제한 */
     position: relative;
     margin-left: 0;
     margin-right: auto;
@@ -69,16 +66,17 @@ input::placeholder {
     border: none;
 }
 
+/* 버튼 영역 */
 .join_btn {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 30px;
-    width: 90%;
+    width: 100%; /* 전체 너비 사용 */
 }
 
 .join_btn button {
-    width: 40%; /* 버튼의 너비를 100%로 설정 */
+    width: 200px; /* 버튼 너비 고정 */
     height: 40px;
     cursor: pointer;
     border: none;
@@ -87,44 +85,45 @@ input::placeholder {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-
 button:active {
     position: relative;
     top: 5px;
 }
 
+/* 숨겨진 메시지 */
 .hide {
-    display:  none;
-
+    display: none;
 }
 
+/* fieldset 스타일 */
 fieldset {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 10px;
     padding: 0;
-    border:  0;
+    border: 0;
 }
 
 fieldset strong {
-    width: 25%; 
+    width: 25%;
     text-align: right;
     padding-right: 10px;
     margin: 0;
 }
 
 strong {
-    margin-top : 30px;
+    margin-top: 30px;
 }
 
+/* 메시지 왼쪽 정렬 */
 .success-message,
 .condition-message,
 .early-message,
 .checkPassword-message,
 .mismatch-message {
-    text-align: left; /* 왼쪽 정렬 */
-    padding-left: 150px; /* 메시지 왼쪽에 여백 추가 */
+    text-align: left;
+    padding-left: 150px;
     color: rgba(80, 15, 15, 0.5);
     margin-bottom: 5px;
 }
