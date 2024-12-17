@@ -12,12 +12,13 @@ loginbtn.addEventListener("click", (e) => {
             Users[i].userID === loginID.value &&
             Users[i].userPW === loginPW.value
         ) {
+
             e.preventDefault();
-            alert("濡쒓?���씤 �꽦??��");
-            window.location.href = "calendar.html";
+            alert("로그인 성공");
+            window.location.href = "../Page 2_Hub Page/calendar.html";
             return;
         }
     }
     e.preventDefault();
-    alert("濡쒓?���씤 �떎�뙣");
+    alert("로그인 실패");
 });

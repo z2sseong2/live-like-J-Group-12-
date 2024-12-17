@@ -319,3 +319,66 @@ td ul li:hover button.delete-plan-btn {
     height: 50px;
     padding-bottom: 6%;
 }
+
+
+/* 팝업창 스타일 */
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 100;
+    display: none; /* 기본적으로 숨김 */
+    width: 300px;
+    border-radius: 8px;
+}
+
+#popup h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#popup ul li {
+    margin: 10px 0;
+    position: relative;
+}
+
+#popup ul li button.delete-plan-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#popup .close-btn {
+    display: block;
+    margin: 10px auto 0;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#popup .close-btn:hover {
+    background-color: #0056b3;
+}

@@ -31,6 +31,7 @@ function checkPassword(str) {
 }
 
 // 비밀번호와 비밀번호 확인 일치 여부 확인
+
 function pwMatch(password1, password2) {
     return password1 === password2;
 }
@@ -108,7 +109,9 @@ setUserPW.onkeyup = function () {
     }
 };
 
+
 // 비밀번호 확인 입력 시 처리
+
 setUserPWConfirm.onkeyup = function () {
     if (setUserPWConfirm.value.length !== 0) {
         if (pwMatch(setUserPW.value, setUserPWConfirm.value)) {
@@ -157,6 +160,7 @@ setUserEM.onkeyup = function () {
 setjoinbtn.addEventListener("click", (e) => {
     if (!canid || !canpw || !canpwCf || !canPN || !canEM) {
         alert("정보를 다시 입력하세요");
+
         return;
     }
     e.preventDefault();
@@ -175,4 +179,5 @@ setjoinbtn.addEventListener("click", (e) => {
 
     alert("회원가입 성공!");
     window.location.href = "calendar.html";
+
 });

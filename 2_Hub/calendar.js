@@ -1,24 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const calendarElement = document.getElementById("calendar"); //ìº˜ë¦°?”
-    const menuButton = document.getElementById("menuButton"); //ë©”ë‰´ ë²„íŠ¼
-    const todayButton = document.getElementById("today-btn"); //?˜¤?Š˜ ?‚ ì§œë¡œ ?‹¬? ¥ ?´?™
-    const currentMonthElement = document.getElementById("current-month"); //ëª‡ì›”?¸ì§? ?‚˜????ƒ„
-    const prevButton = document.getElementById("prev-month-btn"); //? „ ?‹¬ ?´?™
-    const nextButton = document.getElementById("next-month-btn"); //?‹¤?Œ ?‹¬ ?´?™
-    const monthPlansButton = document.getElementById("month-btn"); //?›”ê°? planner ?´?™
-    const weeklyPlansButton = document.getElementById("weekly-btn"); //ì£¼ê°„ planner ?´?™
-    const inputScheduleButton = document.getElementById("inputschedule-btn"); //plan ?…? ¥
-    const menuBox = document.getElementById("menuBox");
 
-    let today = new Date(); //?˜¤?Š˜ ?‚ ì§?
-    let month = today.getMonth(); //?´ë²? ?‹¬
-    let year = today.getFullYear(); //?˜¬?•´ ?…„?„
+    const calendarElement = document.getElementById("calendar"); //ìº˜ë¦°ë”
+    const menuButton = document.getElementById("menuButton"); //ë©”ë‰´ ë²„íŠ¼
+    const todayButton = document.getElementById("today-btn"); //ì˜¤ëŠ˜ ë‚ ì§œë¡œ ë‹¬ë ¥ ì´ë™
+    const currentMonthElement = document.getElementById("current-month"); //ëª‡ì›”ì¸ì§€ ë‚˜íƒ€ëƒ„
+    const prevButton = document.getElementById("prev-month-btn"); //ì „ ë‹¬ ì´ë™
+    const nextButton = document.getElementById("next-month-btn"); //ë‹¤ìŒ ë‹¬ ì´ë™
+    const monthPlansButton = document.getElementById("month-btn"); //ì›”ê°„ planner ì´ë™
+    const weeklyPlansButton = document.getElementById("weekly-btn"); //ì£¼ê°„ planner ì´ë™
+    const inputScheduleButton = document.getElementById("inputschedule-btn"); //plan ì…ë ¥
+    const menuBox = document.getElementById("menuBox");
+    const popup = document.getElementById("popup");
+    const popupDateElement = document.getElementById("popup-date");
+    const popupPlansElement = document.getElementById("popup-plans");
+    const closePopupButton = popup.querySelector(".close-btn");
+
+    let today = new Date(); //ì˜¤ëŠ˜ ë‚ ì§œ
+    let month = today.getMonth(); //ì´ë²ˆ ë‹¬
+    let year = today.getFullYear(); //ì˜¬í•´ ë…„ë„
     let viewMode = "month";
 
-    // ë¡œì»¬ ?Š¤?† ë¦¬ì???—?„œ ê³„íš ë¶ˆëŸ¬?˜¤ê¸?
+    // ë¡œì»¬ ìŠ¤í† ë¦¬ì§€ì—ì„œ ê³„íš ë¶ˆëŸ¬ì˜¤ê¸°
     const savedPlans = JSON.parse(localStorage.getItem("plans")) || {};
 
-    // ?‹¬? ¥ ?—¤?” ?—…?°?´?Š¸ ?•¨?ˆ˜
+    // ë‹¬ë ¥ í—¤ë” ì—…ë°ì´íŠ¸ í•¨ìˆ˜
     function updateHeader() {
         const monthNames = [
             "January",
@@ -37,15 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
         currentMonthElement.textContent = `${year} ${monthNames[month]}`;
     }
 
-    // ?‹¬? ¥ ?ƒ?„± ?•¨?ˆ˜
+    // ë‹¬ë ¥ ìƒì„± í•¨ìˆ˜
     function generateCalendar(month, year) {
-        const daysInMonth = new Date(year, month + 1, 0).getDate(); // ?´ë²? ?‹¬ ë§ˆì??ë§? ?‚ ì§?
-        const firstDay = new Date(year, month, 1).getDay(); // ?´ë²? ?‹¬ 1?¼ ?š”?¼
-        const prevMonthDays = new Date(year, month, 0).getDate(); // ? „ ?‹¬ ë§ˆì??ë§? ?‚ ì§?
+        const daysInMonth = new Date(year, month + 1, 0).getDate(); // ì´ë²ˆ ë‹¬ ë§ˆì§€ë§‰ ë‚ ì§œ
+        const firstDay = new Date(year, month, 1).getDay(); // ì´ë²ˆ ë‹¬ 1ì¼ ìš”ì¼
+        const prevMonthDays = new Date(year, month, 0).getDate(); // ì „ ë‹¬ ë§ˆì§€ë§‰ ë‚ ì§œ
 
         const savedPlans = JSON.parse(localStorage.getItem("plans")) || {};
 
-        // ?‹¬? ¥ êµ¬ì¡° ?ƒ?„±(?…Œ?´ë¸?)
+        // ë‹¬ë ¥ êµ¬ì¡° ìƒì„±(í…Œì´ë¸”)
         let calendarHTML = "<table>";
         calendarHTML +=
             '<tr class="tb-head"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
@@ -57,16 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
             calendarHTML += '<tr class="tb-body">';
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDay) {
-                    // ? „ ?‹¬(?ë¦¬ê²Œ)
+                    // ì „ ë‹¬(íë¦¬ê²Œ)
                     const prevDate = prevMonthDays - firstDay + j + 1;
                     calendarHTML += `<td class="blurred">${prevDate}</td>`;
                 } else if (date > daysInMonth) {
-                    // ?‹¤?Œ ?‹¬(?ë¦¬ê²Œ)
+                    // ë‹¤ìŒ ë‹¬(íë¦¬ê²Œ)
                     calendarHTML += `<td class="blurred">${nextMonthDate}</td>`;
                     nextMonthDate++;
                 } else {
-                    // ?´ë²? ?‹¬
-                    //?˜¤?Š˜ ?‚ ì§? ì°¾ê¸°
+                    // ì´ë²ˆ ë‹¬
+                    //ì˜¤ëŠ˜ ë‚ ì§œ ì°¾ê¸°
                     const isToday =
                         date === today.getDate() &&
                         month === today.getMonth() &&
@@ -97,14 +102,16 @@ document.addEventListener("DOMContentLoaded", () => {
         calendarElement.innerHTML = calendarHTML;
     }
 
-    /*  updateViewë¡œí†µ?•©
+
+    /*  updateViewë¡œí†µí•©
     function updateCalendar() {
         updateHeader();
         generateCalendar(month, year);
     }*/
     function generateWeeklyView() {
         const startOfWeek = new Date(today);
-        startOfWeek.setDate(today.getDate() - today.getDay()); // ì£? ?‹œ?‘?¼ ê³„ì‚°
+
+        startOfWeek.setDate(today.getDate() - today.getDay()); // ì£¼ ì‹œì‘ì¼ ê³„ì‚°
 
         let weeklyHTML = '<table id="weekly-plans"><thead><tr>';
         ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach((day) => {
@@ -116,7 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentDate = new Date(startOfWeek);
             currentDate.setDate(startOfWeek.getDate() + i);
             const dateString = currentDate.toISOString().split("T")[0];
-            const plans = savedPlans[dateString] || []; // ????¥?œ ê³„íš ê°?? ¸?˜¤ê¸?
+
+            const plans = savedPlans[dateString] || []; // ì €ì¥ëœ ê³„íš ê°€ì ¸ì˜¤ê¸°
 
             weeklyHTML += `<td>
                 ${
@@ -125,7 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
                               .map((plan) => `<li>${plan}</li>`)
                               .join("")}</ul>`
                         : "<div></div>"
-                } <!-- ê³„íš?´ ?—†?œ¼ë©? ê³µë°± -->
+
+                } <!-- ê³„íšì´ ì—†ìœ¼ë©´ ê³µë°± -->
             </td>`;
         }
         weeklyHTML += "</tr></tbody></table>";
@@ -141,15 +150,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ?˜¤?Š˜ ?‚ ì§œë¡œ ?Œ?•„????„œ ?‹¬? ¥ ?‹¤?‹œ ?ƒ?„±
+    // ì˜¤ëŠ˜ ë‚ ì§œë¡œ ëŒì•„ì™€ì„œ ë‹¬ë ¥ ë‹¤ì‹œ ìƒì„±
     todayButton.addEventListener("click", () => {
-        month = today.getMonth(); //?´ë²? ?‹¬
-        year = today.getFullYear(); //?˜¬?•´ ?…„?„
+        month = today.getMonth(); //ì´ë²ˆ ë‹¬
+        year = today.getFullYear(); //ì˜¬í•´ ë…„ë„
 
         updateView();
     });
 
-    // ? „ ?‹¬ë¡? ?´?™
+    // ì „ ë‹¬ë¡œ ì´ë™
     prevButton.addEventListener("click", () => {
         month--;
         if (month < 0) {
@@ -159,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateView();
     });
 
-    // ?‹¤?Œ ?‹¬ë¡? ?´?™
+    // ë‹¤ìŒ ë‹¬ë¡œ ì´ë™
     nextButton.addEventListener("click", () => {
         month++;
         if (month > 11) {
@@ -169,9 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateView();
     });
 
-    // Input Schedule ?˜?´ì§?ë¡? ?´?™
+    // Input Schedule í˜ì´ì§€ë¡œ ì´ë™
     inputScheduleButton.addEventListener("click", () => {
-        window.location.href = "inputschedule.html";
+        window.location.href = "./inputschedule.html";
     });
     updateView();
 
@@ -186,19 +195,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     menuButton.addEventListener("click", () => {
-        // ë©”ë‰´ ë°•ìŠ¤?˜ ?‘œ?‹œ ?—¬ë¶?ë¥? ?† ê¸?
+
+        // ë©”ë‰´ ë°•ìŠ¤ì˜ í‘œì‹œ ì—¬ë¶€ë¥¼ í† ê¸€
         if (menuBox.style.display === "none" || menuBox.style.display === "") {
-            menuBox.style.display = "block"; // ë©”ë‰´ ë³´ì´ê¸?
+            menuBox.style.display = "block"; // ë©”ë‰´ ë³´ì´ê¸°
         } else {
-            menuBox.style.display = "none"; // ë©”ë‰´ ?ˆ¨ê¸°ê¸°
+            menuBox.style.display = "none"; // ë©”ë‰´ ìˆ¨ê¸°ê¸°
         }
         updateView();
     });
 
-    // ê°ê°?˜ ë²„íŠ¼?— ?´ë²¤íŠ¸ ì¶”ê?? (?•„?š”?— ?”°?¼ ?ˆ˜? • ê°??Š¥)
+    // ê°ê°ì˜ ë²„íŠ¼ì— ì´ë²¤íŠ¸ ì¶”ê°€ (í•„ìš”ì— ë”°ë¼ ìˆ˜ì • ê°€ëŠ¥)
     document.getElementById("profileButton").addEventListener("click", () => {
         alert("Profile clicked");
-        window.location.href = "mypage.html"; // mypageë¡? ?´?™
+        window.location.href = "../Page 4_My Page/mypage.html"; // mypageë¡œ ì´ë™
     });
     document.getElementById("schedulesButton").addEventListener("click", () => {
         alert("Schedules clicked");
@@ -220,4 +230,56 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("settingsButton").addEventListener("click", () => {
         alert("Settings clicked");
     });
+    function openPopup(date) {
+        popupDateElement.textContent = date;
+        popupPlansElement.innerHTML = "";
+
+        const plans = savedPlans[date] || [];
+        plans.forEach((plan, index) => {
+            const li = document.createElement("li");
+            li.textContent = plan;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "x";
+            deleteButton.classList.add("delete-plan-btn");
+            deleteButton.addEventListener("click", () => {
+                deletePlan(date, index);
+            });
+
+            li.appendChild(deleteButton);
+            popupPlansElement.appendChild(li);
+        });
+
+        popup.style.display = "block";
+    }
+
+    // íŒì—…ì°½ ë‹«ê¸°
+    function closePopup() {
+        popup.style.display = "none";
+    }
+
+    // ê³„íš ì‚­ì œ
+    function deletePlan(date, planIndex) {
+        if (savedPlans[date]) {
+            savedPlans[date].splice(planIndex, 1); // ê³„íš ì‚­ì œ
+            if (savedPlans[date].length === 0) {
+                delete savedPlans[date]; // ê³„íšì´ ì—†ìœ¼ë©´ í•´ë‹¹ ë‚ ì§œ ì‚­ì œ
+            }
+            localStorage.setItem("plans", JSON.stringify(savedPlans)); // ë¡œì»¬ìŠ¤í† ë¦¬ì§€ ì—…ë°ì´íŠ¸
+            openPopup(date); // íŒì—… ì—…ë°ì´íŠ¸
+            updateView(); // ë‹¬ë ¥ ì—…ë°ì´íŠ¸
+        }
+    }
+
+    // ë‚ ì§œ í´ë¦­ ì´ë²¤íŠ¸ ì¶”ê°€
+    calendarElement.addEventListener("click", (event) => {
+        const target = event.target.closest("td[data-date]");
+        if (target) {
+            const date = target.getAttribute("data-date");
+            openPopup(date);
+        }
+    });
+
+    // íŒì—… ë‹«ê¸° ë²„íŠ¼ ì´ë²¤íŠ¸
+    closePopupButton.addEventListener("click", closePopup);
 });
