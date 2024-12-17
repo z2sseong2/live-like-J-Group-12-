@@ -1,0 +1,78 @@
+/* 프로그레스 바 스타일 */
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    margin-top: 20px;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%; /* 기본 상태 */
+    transition: width 0.5s ease;
+}
+
+/* 기존 스타일 유지 */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.completion-container {
+    background-color: white;
+    padding: 30px 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.nav-buttons button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-buttons button:hover {
+    background-color: #0056b3;
+}
+/* Back 버튼 스타일 */
+.back-btn-container {
+    text-align: left; /* 왼쪽 정렬 */
+    margin-top: 10px; /* 위쪽 여백 */
+    margin-left: 20px; /* 왼쪽 여백 */
+}
+
+#back-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#back-btn:hover {
+    background-color: darkgray;
+}

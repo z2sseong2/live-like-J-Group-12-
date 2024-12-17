@@ -151,3 +151,78 @@ div {
     height: 80px;
     object-fit: contain;
 }
+/* 메모장 스타일 */
+.memo-section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.memo-section h2 {
+    margin-bottom: 10px;
+}
+
+.memo-section textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.memo-section button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.memo-section button:hover {
+    background-color: darkgray;
+}
+
+#savedMemoDisplay {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 50px;
+    white-space: pre-wrap;
+}
+/* 메모 스타일 (수정) */
+.saved-memo {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    position: relative; /* 내부에 X버튼 위치 조정 */
+}
+
+/* 삭제 버튼 스타일 (수정) */
+.delete-button {
+    position: absolute;
+    top: -8px; 
+    right: 5px; /* 오른쪽 정렬 유지 */
+    background: none;
+    border: none;
+    color: red;
+    font-size: 0.8em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.delete-button:hover {
+    color: darkred;
+}
+

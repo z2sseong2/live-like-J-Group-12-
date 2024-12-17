@@ -9,6 +9,7 @@
 
     <body>
         <div class="page-container">
+            <!-- 페이지 헤더 -->
             <div class="page-header">
                 <!-- 메뉴 버튼 -->
                 <div class="menu-button" id="menuButton">
@@ -31,7 +32,7 @@
                         <li><button id="settingsButton">Settings</button></li>
                     </ul>
                 </div>
-                <!-- HERE -->
+
                 <!-- 로고 버튼 -->
                 <button id="logoButton" class="logo-button">
                     <img
@@ -41,7 +42,37 @@
                     />
                 </button>
             </div>
+
+            <!-- 메모장 섹션 -->
+            <div class="memo-section">
+                <h2>Memo</h2>
+                <textarea
+                    id="memoInput"
+                    placeholder="Write your memo here..."
+                ></textarea>
+                <button id="saveMemoButton">Save Memo</button>
+                <div id="savedMemoDisplay"></div>
+            </div>
         </div>
+
+        <!-- JavaScript 파일 -->
         <script src="./memo.js"></script>
+        <script>
+            // 메모 저장 및 표시
+            document
+                .getElementById("saveMemoButton")
+                .addEventListener("click", () => {
+                    const memoContent =
+                        document.getElementById("memoInput").value;
+                    const displayArea =
+                        document.getElementById("savedMemoDisplay");
+
+                    if (memoContent.trim()) {
+                        displayArea.textContent = memoContent;
+                    } else {
+                        alert("Please write something before saving.");
+                    }
+                });
+        </script>
     </body>
 </html>
