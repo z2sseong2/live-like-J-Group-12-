@@ -51,3 +51,56 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "../Page 2_Hub Page/calendar.html";
     });
 });
+// 메모 저장 및 로드 기능
+document.addEventListener("DOMContentLoaded", () => {
+    const memoInput = document.getElementById("memoInput");
+    const saveMemoButton = document.getElementById("saveMemoButton");
+    const savedMemoDisplay = document.getElementById("savedMemoDisplay");
+
+    // 저장된 메모 불러오기
+    let memoList = JSON.parse(localStorage.getItem("memoList")) || [];
+    renderMemoList();
+
+    // 메모 저장
+    saveMemoButton.addEventListener("click", () => {
+        const memoContent = memoInput.value.trim();
+
+        if (memoContent) {
+            memoList.push(memoContent); // 새로운 메모 추가
+            localStorage.setItem("memoList", JSON.stringify(memoList)); // localStorage에 저장
+            memoInput.value = ""; // 입력 필드 초기화
+            renderMemoList(); // 메모 다시 표시
+        } else {
+            alert("Please write something before saving.");
+        }
+    });
+
+    // 메모 삭제
+    function deleteMemo(index) {
+        memoList.splice(index, 1); // 해당 인덱스의 메모 삭제
+        localStorage.setItem("memoList", JSON.stringify(memoList)); // localStorage 업데이트
+        renderMemoList(); // 화면 다시 표시
+    }
+
+    // 메모 목록 화면에 출력
+    function renderMemoList() {
+        savedMemoDisplay.innerHTML = ""; // 기존 목록 초기화
+        memoList.forEach((memo, index) => {
+            const memoItem = document.createElement("div");
+            memoItem.classList.add("saved-memo"); // 스타일 클래스 추가
+            memoItem.textContent = `${memo}`;
+
+            // 삭제 버튼 추가
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "✖";
+            deleteButton.classList.add("delete-button");
+            deleteButton.addEventListener("click", () => deleteMemo(index));
+
+            // 메모 아이템에 삭제 버튼 추가
+            memoItem.appendChild(deleteButton);
+            savedMemoDisplay.appendChild(memoItem);
+        });
+    }
+});
+
+
