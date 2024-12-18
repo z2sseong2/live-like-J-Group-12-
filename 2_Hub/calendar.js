@@ -87,9 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (i === 0 && j < firstDay) {
                     // 이전 달의 날짜 처리
-                    calendarHTML += `<td class="blurred">${
-                        prevMonthDays - firstDay + j + 1
-                    }</td>`;
+                    calendarHTML += `<td class="blurred">${prevMonthDays - firstDay + j + 1
+                        }</td>`;
                 } else if (date > daysInMonth) {
                     // 다음 달의 날짜 처리
                     calendarHTML += `<td class="blurred">${nextMonthDate}</td>`;
@@ -185,9 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (i === 0 && j < firstDay) {
                     // 이전 달의 날짜 처리
-                    calendarHTML += `<td class="blurred">${
-                        prevMonthDays - firstDay + j + 1
-                    }</td>`;
+                    calendarHTML += `<td class="blurred">${prevMonthDays - firstDay + j + 1
+                        }</td>`;
                 } else if (date > daysInMonth) {
                     // 다음 달의 날짜 처리
                     calendarHTML += `<td class="blurred">${nextMonthDate}</td>`;
@@ -257,9 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 일정이 5개를 초과하면 (+) 표시
             if (plans.length > 5) {
-                planHTML += `<div class="more-schedule">+${
-                    plans.length - 5
-                } more</div>`;
+                planHTML += `<div class="more-schedule">+${plans.length - 5
+                    } more</div>`;
             }
 
             weeklyHTML += `
@@ -353,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     document.getElementById("memoButton").addEventListener("click", () => {
         // alert("Memo clicked");
-        window.location.href = "../6_Memo/memo.html";
+        window.location.href = "../5_Memo/memo.html";
     });
     function openPopup(date) {
         popupDateElement.textContent = date;
