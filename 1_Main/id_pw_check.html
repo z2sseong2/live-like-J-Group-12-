@@ -1,219 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ID / Password Finder</title>
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ID / Password Finder</title>
+        <style>
+            body {
+                font-family: "Noto Sans KR", sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
 
-        .popup {
-            background-color: #fff;
-            width: 400px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+            .popup {
+                background-color: #fff;
+                width: 400px;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
 
-        .popup h2 {
-            margin: 0 0 20px;
-            font-size: 1.5em;
-            color: #333;
-        }
+            .popup h2 {
+                margin: 0 0 20px;
+                font-size: 1.5em;
+                color: #333;
+            }
 
-        .popup form {
-            display: flex;
-            flex-direction: column;
-        }
+            .popup form {
+                display: flex;
+                flex-direction: column;
+            }
 
-        .popup label {
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+            .popup label {
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
 
-        .popup input[type="text"],
-        .popup input[type="email"] {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-        }
+            .popup input[type="text"],
+            .popup input[type="email"] {
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 1em;
+            }
 
-        .popup button {
-            padding: 10px;
-            background-color: rgba(80, 15, 15, 0.5);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+            .popup button {
+                padding: 10px;
+                background-color: rgba(80, 15, 15, 0.5);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 1em;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
 
-        .popup button:hover {
-            background-color: rgba(80, 15, 15, 0.8);
-        }
+            .popup button:hover {
+                background-color: rgba(80, 15, 15, 0.8);
+            }
 
-        .tabs {
-            display: flex;
-            margin-bottom: 20px;
-        }
+            .tabs {
+                display: flex;
+                margin-bottom: 20px;
+            }
 
-        .tabs button {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            background: #f4f4f9;
-            cursor: pointer;
-            font-size: 1em;
-        }
+            .tabs button {
+                flex: 1;
+                padding: 10px;
+                border: none;
+                background: #f4f4f9;
+                cursor: pointer;
+                font-size: 1em;
+            }
 
-        .tabs button.active {
-            background-color: rgba(80, 15, 15, 0.5);
-            color: white;
-            font-weight: bold;
-        }
+            .tabs button.active {
+                background-color: rgba(80, 15, 15, 0.5);
+                color: white;
+                font-weight: bold;
+            }
 
-        .form-section {
-            display: none;
-        }
+            .form-section {
+                display: none;
+            }
 
-        .form-section.active {
-            display: block;
-        }
+            .form-section.active {
+                display: block;
+            }
 
-        .result {
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #007bff;
-        }
-    </style>
-</head>
-<body>
-    <div class="popup">
-        <div id="result" class="result"></div>
-        <div class="tabs">
-            <button id="tab-find-id" class="active">Find ID</button>
-            <button id="tab-find-pw">Find Password</button>
+            .result {
+                margin-bottom: 20px;
+                font-weight: bold;
+                color: #007bff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="popup">
+            <div id="result" class="result"></div>
+            <div class="tabs">
+                <button id="tab-find-id" class="active">Find ID</button>
+                <button id="tab-find-pw">Find Password</button>
+            </div>
+
+            <div id="find-id-section" class="form-section active">
+                <h2>Find ID</h2>
+                <form id="find-id-form">
+                    <label for="username-id">Enter Name:</label>
+                    <input
+                        type="text"
+                        id="username-id"
+                        placeholder="Your Name"
+                        required
+                    />
+
+                    <label for="email-id">Enter Your Email:</label>
+                    <input
+                        type="email"
+                        id="email-id"
+                        placeholder="example@email.com"
+                        required
+                    />
+
+                    <label for="phone-number-id">Enter Phone Number:</label>
+                    <input
+                        type="text"
+                        id="phone-number-id"
+                        placeholder="Phone Number"
+                        required
+                    />
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div id="find-pw-section" class="form-section">
+                <h2>Find Password</h2>
+                <form id="find-pw-form">
+                    <label for="username-pw">Enter Name:</label>
+                    <input
+                        type="text"
+                        id="username-pw"
+                        placeholder="Your Name"
+                        required
+                    />
+
+                    <label for="userid">Enter ID:</label>
+                    <input
+                        type="text"
+                        id="userid"
+                        placeholder="Your ID"
+                        required
+                    />
+
+                    <label for="email-pw">Enter Your Email:</label>
+                    <input
+                        type="email"
+                        id="email-pw"
+                        placeholder="example@email.com"
+                        required
+                    />
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
 
-        <div id="find-id-section" class="form-section active">
-            <h2>Find ID</h2>
-            <form id="find-id-form">
-                <label for="username-id">Enter Name:</label>
-                <input type="text" id="username-id" placeholder="Your Name" required>
+        <script>
+            const Users = JSON.parse(localStorage.getItem("Users")) || [];
 
-                <label for="email-id">Enter Your Email:</label>
-                <input type="email" id="email-id" placeholder="example@email.com" required>
+            let findID = document.querySelector("#find-id-form");
+            let findPW = document.querySelector("#find-pw-form");
+            const tabFindID = document.querySelector("#tab-find-id");
+            const tabFindPW = document.querySelector("#tab-find-pw");
+            const findIDSection = document.querySelector("#find-id-section");
+            const findPWSection = document.querySelector("#find-pw-section");
 
-                <label for="phone-number-id">Enter Phone Number:</label>
-                <input type="text" id="phone-number-id" placeholder="Phone Number" required>
+            // 탭 전환 기능
+            tabFindID.addEventListener("click", () => {
+                tabFindID.classList.add("active");
+                tabFindPW.classList.remove("active");
+                findIDSection.classList.add("active");
+                findPWSection.classList.remove("active");
+            });
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+            tabFindPW.addEventListener("click", () => {
+                tabFindPW.classList.add("active");
+                tabFindID.classList.remove("active");
+                findPWSection.classList.add("active");
+                findIDSection.classList.remove("active");
+            });
 
-        <div id="find-pw-section" class="form-section">
-            <h2>Find Password</h2>
-            <form id="find-pw-form">
-                <label for="username-pw">Enter Name:</label>
-                <input type="text" id="username-pw" placeholder="Your Name" required>
+            // ID 찾기
+            findID.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const username = document
+                    .querySelector("#username-id")
+                    .value.trim();
+                const email = document.querySelector("#email-id").value.trim();
+                const phoneNumber = document
+                    .querySelector("#phone-number-id")
+                    .value.trim();
 
-                <label for="userid">Enter ID:</label>
-                <input type="text" id="userid" placeholder="Your ID" required>
+                let matchedUser = null;
 
-                <label for="email-pw">Enter Your Email:</label>
-                <input type="email" id="email-pw" placeholder="example@email.com" required>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        const Users = JSON.parse(localStorage.getItem("Users")) || [];
-        
-        let findID = document.querySelector("#find-id-form");
-        let findPW = document.querySelector("#find-pw-form");
-        const tabFindID = document.querySelector("#tab-find-id");
-        const tabFindPW = document.querySelector("#tab-find-pw");
-        const findIDSection = document.querySelector("#find-id-section");
-        const findPWSection = document.querySelector("#find-pw-section");
-    
-        // 탭 전환 기능
-        tabFindID.addEventListener('click', () => {
-            tabFindID.classList.add('active');
-            tabFindPW.classList.remove('active');
-            findIDSection.classList.add('active');
-            findPWSection.classList.remove('active');
-        });
-
-        tabFindPW.addEventListener('click', () => {
-            tabFindPW.classList.add('active');
-            tabFindID.classList.remove('active');
-            findPWSection.classList.add('active');
-            findIDSection.classList.remove('active');
-        });
-
-        // ID 찾기
-        findID.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.querySelector("#username-id").value.trim();
-            const email = document.querySelector("#email-id").value.trim();
-            const phoneNumber = document.querySelector("#phone-number-id").value.trim();
-            
-            let matchedUser = null;
-    
-            for (let i = 0; i < Users.length; i++) {
-                if (Users[i].userName === username && Users[i].userEM === email && Users[i].userPN === phoneNumber) {
-                    matchedUser = Users[i];
-                    break;
+                for (let i = 0; i < Users.length; i++) {
+                    if (
+                        Users[i].userName === username &&
+                        Users[i].userEM === email &&
+                        Users[i].userPN === phoneNumber
+                    ) {
+                        matchedUser = Users[i];
+                        break;
+                    }
                 }
-            }
-    
-            if (matchedUser) {
-                alert(`Your ID is: ${matchedUser.userID}`);
-            } else {
-                alert("No matching user found. Please check your information.");
-            }
-        });
-    
-        // 비밀번호 찾기
-        findPW.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.querySelector("#username-pw").value.trim();
-            const userId = document.querySelector("#userid").value.trim();
-            const email = document.querySelector("#email-pw").value.trim();
-    
-            let matchedUser = null;
-    
-            for (let i = 0; i < Users.length; i++) {
-                if (Users[i].userName === username && Users[i].userID === userId && Users[i].userEM === email) {
-                    matchedUser = Users[i];
-                    break;
+
+                if (matchedUser) {
+                    alert(`Your ID is: ${matchedUser.userID}`);
+                } else {
+                    alert(
+                        "No matching user found. Please check your information."
+                    );
                 }
-            }
-    
-            if (matchedUser) {
-                const tempPassword = Math.random().toString(36).slice(-8);
-                matchedUser.userPW = tempPassword;
-    
-                localStorage.setItem("Users", JSON.stringify(Users));
-                alert(`Your temporary password is: ${tempPassword}`);
-            } else {
-                alert("No matching user found. Please check your information.");
-            }
-        });
-    </script>
-</body>
+            });
+
+            // 비밀번호 찾기
+            findPW.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const username = document
+                    .querySelector("#username-pw")
+                    .value.trim();
+                const userId = document.querySelector("#userid").value.trim();
+                const email = document.querySelector("#email-pw").value.trim();
+
+                let matchedUser = null;
+
+                for (let i = 0; i < Users.length; i++) {
+                    if (
+                        Users[i].userName === username &&
+                        Users[i].userID === userId &&
+                        Users[i].userEM === email
+                    ) {
+                        matchedUser = Users[i];
+                        break;
+                    }
+                }
+
+                if (matchedUser) {
+                    const tempPassword = Math.random().toString(36).slice(-8);
+                    matchedUser.userPW = tempPassword;
+
+                    localStorage.setItem("Users", JSON.stringify(Users));
+                    alert(`Your temporary password is: ${tempPassword}`);
+                } else {
+                    alert(
+                        "No matching user found. Please check your information."
+                    );
+                }
+            });
+        </script>
+    </body>
 </html>

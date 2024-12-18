@@ -4,13 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My Page</title>
-        <link href="./mypage.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./mypage.css" />
     </head>
-
     <body>
         <div class="page-container">
+            <!-- 상단 메뉴 및 로고 -->
             <div class="page-header">
-                 <!-- 메뉴 버튼 -->
+                <!-- 메뉴 버튼 -->
                 <div class="menu-button" id="menuButton">
                     <span></span>
                     <span></span>
@@ -19,89 +19,66 @@
                 <div class="menu-box" id="menuBox">
                     <ul>
                         <li><button id="profileButton">Profile</button></li>
-                        <li><button id="schedulesButton">Schedules</button></li>
-                        <li><button id="todoListButton">ToDoList</button></li>
                         <li>
-                            <button id="challengeMapButton">ChallengeMap</button>
+                            <button id="challengeMapButton">
+                                ChallengeMap
+                            </button>
                         </li>
                         <li><button id="memoButton">Memo</button></li>
-                        <li><button id="guidelineButton">Guideline</button></li>
-                        <li><button id="settingsButton">Settings</button></li>
                     </ul>
                 </div>
-                <!-- HERE -->
-                 <!-- 로고 버튼 -->
+                <!-- 로고 버튼 -->
                 <button id="logoButton" class="logo-button">
-                    <img src="../images/logo_2.jpg" alt="Logo" class="logo-img">
+                    <img
+                        src="../images/logo_2.jpg"
+                        alt="Logo"
+                        class="logo-img"
+                    />
                 </button>
             </div>
-        </div>
 
-        </div>
-       
-    
-            <!-- 프로필 섹션 -->
-            <section class="profile-section">
-                <div class="avatar-box">
-                    <img
-                        src="https://via.placeholder.com/100"
-                        alt="Avatar"
-                        class="avatar"
-                    />
-                    <h3>나의 아바타 이미지</h3>
+            <!-- 사용자 정보 표시 섹션 -->
+            <div class="profile-section">
+                <h2 class="page-title">My Page</h2>
+                <div class="user-info">
+                    <p>
+                        <strong>Name:</strong>
+                        <input type="text" id="user-name" disabled />
+                        <button class="edit-btn" data-field="userName">
+                            ✏️
+                        </button>
+                    </p>
+                    <p>
+                        <strong>ID:</strong>
+                        <input type="text" id="user-id" disabled />
+                        <button class="edit-btn" data-field="userID">✏️</button>
+                    </p>
+                    <p>
+                        <strong>Password:</strong>
+                        <input type="password" id="user-pw" disabled />
+                        <button id="toggle-pw-btn" class="toggle-btn">
+                            👁️
+                        </button>
+                        <button class="edit-btn" data-field="userPW">✏️</button>
+                    </p>
+                    <div class="checkPassword-message hide">
+                        비밀번호는 8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를
+                        포함해야 합니다.
+                    </div>
+
+                    <p>
+                        <strong>Phone Number:</strong>
+                        <input type="text" id="user-pn" disabled />
+                        <button class="edit-btn" data-field="userPN">✏️</button>
+                    </p>
+                    <p>
+                        <strong>Email:</strong>
+                        <input type="email" id="user-em" disabled />
+                        <button class="edit-btn" data-field="userEM">✏️</button>
+                    </p>
                 </div>
-                <div class="progress-buttons">
-                    <button>평균 일일 완주율</button>
-                    <button>평균 일일 완주율</button>
-                    <button>평균 일일 완주율</button>
-                    <button>평균 일일 완주율</button>
-                </div>
-            </section>
-
-            <!-- 정보 입력 섹션 -->
-            <section class="info-section">
-                <img
-                    src="https://via.placeholder.com/150"
-                    alt="Logo"
-                    class="logo"
-                />
-                <form>
-                    <label for="name">Name:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter your name"
-                    />
-
-                    <label for="id">ID:</label>
-                    <input type="text" id="id" placeholder="Enter your ID" />
-
-                    <label for="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                    />
-
-                    <label for="phone">Phone Number:</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter your phone number"
-                    />
-
-                    <label for="email">E-mail:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                    />
-
-                    <button type="submit" class="edit-btn">편집</button>
-                </form>
-            </section>
+            </div>
         </div>
-
         <script src="./mypage.js"></script>
     </body>
 </html>

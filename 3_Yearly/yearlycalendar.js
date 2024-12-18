@@ -23,33 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 각각의 버튼에 이벤트 추가
     document.getElementById("profileButton").addEventListener("click", () => {
-        alert("Profile clicked");
-        window.location.href = "../Page 4_My Page/mypage.html"; // mypage로 이동
-    });
-    document.getElementById("schedulesButton").addEventListener("click", () => {
-        alert("Schedules clicked");
-    });
-    document.getElementById("todoListButton").addEventListener("click", () => {
-        alert("ToDoList clicked");
+        window.location.href = "../4_My/mypage.html"; // mypage로 이동
     });
     document
         .getElementById("challengeMapButton")
         .addEventListener("click", () => {
-            alert("ChallengeMap clicked");
+            window.location.href = "../2_Hub/completion-rate.html"; // 노력지도 페이지로 이동
         });
     document.getElementById("memoButton").addEventListener("click", () => {
-        alert("Memo clicked");
-    });
-    document.getElementById("guidelineButton").addEventListener("click", () => {
-        alert("Guideline clicked");
-    });
-    document.getElementById("settingsButton").addEventListener("click", () => {
-        alert("Settings clicked");
+        window.location.href = "../6_Memo/memo.html";
     });
 
     // 로고 버튼 클릭 시, Page 2로 이동
     document.getElementById("logoButton").addEventListener("click", () => {
-        window.location.href = "../Page 2_Hub Page/calendar.html";
+        window.location.href = "../2_Hub/calendar.html";
     });
 
     /* === 년도 선택 및 월 선택 관련 코드 === */
@@ -58,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("overlay");
     const monthOverlay = document.getElementById("month-selection-overlay");
     const yearOptionsDiv = document.querySelector(".year-options");
-    const monthOptionsDiv = document.querySelector(".month-options");
     const currentDecadeSpan = document.getElementById("current-decade");
     const prevDecadeButton = document.getElementById("prev-decade");
     const nextDecadeButton = document.getElementById("next-decade");
@@ -67,21 +53,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     let currentStartYear = 2020; // 현재 표시 중인 10년 범위의 시작 년도
+    let selectedYear = new Date().getFullYear(); // 선택된 년도 (초기값: 현재 년도)
 
-    // 드롭다운 메뉴에 년도 버튼 업데이트
+    // 드롭다운 메뉴에 년도 버튼들 업데이트
     function updateYearOptions(startYear) {
         yearOptionsDiv.innerHTML = ""; // 기존 버튼 초기화
         for (let year = startYear; year < startYear + 10; year++) {
             const yearButton = document.createElement("button");
             yearButton.textContent = year;
+
+            // 년도 버튼 클릭 이벤트
             yearButton.addEventListener("click", () => {
+                selectedYear = year; // 선택된 년도 저장
+                console.log(`Selected Year: ${selectedYear}`); // 디버그: 선택된 년도 확인
                 overlay.style.display = "none"; // 년도 선택 드롭다운 숨기기
-                monthOverlay.style.display = "flex"; // 월 선택 화면 표시
-                currentYearButton.textContent = year; // 현재 년도 업데이트
-                alert(`Selected Year: ${year}`);
+
+                // 현재 년도 버튼 텍스트 업데이트
+                currentYearButton.textContent = year;
+
+                // 월 선택 화면 표시
+                monthOverlay.style.display = "flex";
             });
+
             yearOptionsDiv.appendChild(yearButton);
         }
+
+        // 현재 10년 범위 업데이트
         currentDecadeSpan.textContent = `${startYear} - ${startYear + 9}`;
     }
 
@@ -128,16 +125,26 @@ document.addEventListener("DOMContentLoaded", () => {
         "December",
     ];
 
-    months.forEach((month) => {
+    const monthContainer = document.querySelector(".month-buttons");
+
+    months.forEach((month, index) => {
         const monthButton = document.createElement("button");
         monthButton.textContent = month;
-        monthButton.dataset.month = month;
+        monthButton.dataset.month = index; // 0부터 시작하는 월 인덱스 저장
+
+        // 월 선택 버튼 클릭 이벤트
         monthButton.addEventListener("click", () => {
-            alert(`Selected Month: ${month}`);
-            monthOverlay.style.display = "none"; // 월 선택 화면 숨기기
-            // 선택된 년도 및 월을 기반으로 추가 로직을 구현 가능
+            console.log(
+                `Navigating to year: ${selectedYear}, month: ${index + 1}`
+            );
+
+            // 월별 캘린더 페이지로 이동
+            window.location.href = `../2_Hub/calendar.html?year=${selectedYear}&month=${
+                index + 1
+            }`;
         });
-        monthOptionsDiv.appendChild(monthButton);
+
+        monthContainer.appendChild(monthButton);
     });
 
     // Back 버튼 클릭 시 년도 선택 화면으로 돌아가기

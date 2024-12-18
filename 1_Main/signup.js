@@ -27,7 +27,9 @@ function idlength(value) {
 
 // 비밀번호 적합성 확인 함수
 function checkPassword(str) {
-    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(str);
+    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+        str
+    );
 }
 
 // 비밀번호와 비밀번호 확인 일치 여부 확인
@@ -109,7 +111,6 @@ setUserPW.onkeyup = function () {
     }
 };
 
-
 // 비밀번호 확인 입력 시 처리
 
 setUserPWConfirm.onkeyup = function () {
@@ -178,6 +179,5 @@ setjoinbtn.addEventListener("click", (e) => {
     localStorage.setItem("Users", JSON.stringify(Users));
 
     alert("회원가입 성공!");
-    window.location.href = "/calendar.html";
-
+    window.location.href = "../2_Hub/calendar.html";
 });
