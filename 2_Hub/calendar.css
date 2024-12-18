@@ -127,10 +127,11 @@ div {
 
 .button-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 /* 달력 컨트롤 바 */
@@ -143,7 +144,13 @@ div {
 }
 
 #current-month {
+    cursor: pointer;
+    font-weight: bold;
     font-size: 1.5em;
+}
+
+#current-month:hover {
+    color: blue;
 }
 
 /* 월간/주간 달력 체인지 */
@@ -230,13 +237,76 @@ th {
     background-color: #f4f4f4;
 }
 
+th:hover {
+    background-color: #4caf50 !important; /* 초록색 배경 강제 적용 */
+    color: white !important; /* 글자색 흰색 강제 적용 */
+    transition: background-color 0.3s ease; /* 부드러운 전환 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+}
+
+/* 기존 td 스타일 + hover 유지 */
 td {
     height: 50px;
     padding-bottom: 6%;
+    position: relative;
+    vertical-align: top; /* 셀 위쪽 정렬 */
+    text-align: center; /* 가운데 정렬 */
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+td:hover {
+    background-color: #d3d3d3; /* hover 효과 */
+}
+
+/* 셀 안의 일정 정렬 */
+td div.schedule {
+    text-align: center;
+    margin: 2px auto; /* 간격 조절 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 일정이 길 경우 ... 처리 */
+    font-size: 1em;
+}
+
+/* (+) 표시를 추가하는 스타일 */
+td div.more-schedule {
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* 날짜 숫자 상단 좌측 정렬 */
+td .date-number {
+    position: absolute; /* 날짜를 고정 */
+    top: 5px; /* 상단 여백 */
+    left: 5px; /* 왼쪽 여백 */
+    font-size: 0.9em; /* 글자 크기 */
+    font-weight: bold; /* 글자 강조 */
+    color: #555; /* 글자 색상 */
+    text-align: left; /* 텍스트 좌측 정렬 */
 }
 
 .current-day {
-    background-color: #ffeb3b;
+    /* background-color: #ffeb3b; */
+    color: white; /* 글자 색상 */
+    font-weight: bold; /* 강조 */
+    border: 2px solid #ff5722; /* 테두리 강조 (선택 사항) */
+}
+
+/* 오늘 날짜 숫자에 동그라미 */
+.circle-date {
+    display: inline-block;
+    width: 20px; /* 동그라미의 너비 */
+    height: 20px; /* 동그라미의 높이 */
+    line-height: 30px; /* 숫자를 중앙에 위치시킴 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    background-color: #ff9800; /* 동그라미 배경색 (주황색) */
+    color: white; /* 숫자 색상 */
+    font-weight: bold; /* 글자 강조 */
+    text-align: center; /* 숫자 가운데 정렬 */
+    margin: 0 auto; /* 가운데 배치 */
 }
 
 .blurred {
@@ -320,7 +390,6 @@ td ul li:hover button.delete-plan-btn {
     padding-bottom: 6%;
 }
 
-
 /* 팝업창 스타일 */
 #popup {
     position: fixed;
@@ -382,7 +451,7 @@ td ul li:hover button.delete-plan-btn {
 }
 
 #popup ul li.completed::after {
-    content: '\2713'; /* 체크 마크 유니코드 */
+    content: "\2713"; /* 체크 마크 유니코드 */
     color: #4caf50; /* 초록색 체크 마크 */
     font-size: 1.2em;
     position: absolute;
@@ -428,4 +497,45 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
     background-color: #4caf50; /* Green */
+}
+
+/* 로고 컨테이너 스타일 */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    flex-grow: 0; /* 크기 확장 방지 */
+}
+
+/* 로고 이미지 스타일 */
+.logo-img {
+    width: 90px; /* 로고 크기 조정 */
+    height: 40px;
+    object-fit: contain;
+    cursor: pointer; /* 마우스 포인터를 손가락 모양으로 변경 */
+}
+
+/* 완료 및 삭제 버튼 스타일 */
+.complete-plan-btn,
+.delete-plan-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+.complete-plan-btn {
+    color: green;
+}
+
+.delete-plan-btn {
+    color: red;
+}
+
+.date-number {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 5px;
 }

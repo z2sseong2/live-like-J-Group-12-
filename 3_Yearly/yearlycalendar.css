@@ -236,6 +236,56 @@ div {
 
 /** 월 선택 관련 버튼 시작 **/
 
+.month-selection-container {
+    display: flex;
+    flex-direction: column; /* 상하 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    justify-content: space-evenly; /* 상단, 중간, 하단에 균등하게 배치 */
+    height: calc(100vh - 100px); /* 화면 높이에서 메뉴바 높이를 제외 */
+    margin-top: 0;
+    padding: 0 20px;
+    /* margin-top: 50px; */
+}
+
+.month-selection-container h2 {
+    font-size: 1.5em;
+    margin: 0; /* 여백 제거 */
+
+    /* margin-bottom: 20px; */
+}
+
+.month-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 auto; /* 버튼 그룹을 부모 컨테이너의 중앙으로 이동 */
+    width: fit-content; /* 버튼의 크기에 따라 width를 자동 조정 */
+    /* width: 50%; */
+}
+
+.month-buttons button {
+    width: 200px; /* 버튼 너비 */
+    height: 100px; /* 버튼 높이 */
+    font-size: 1.2em; /* 텍스트 크기 */
+    padding: 15px 20px; /* 내부 여백 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; */
+}
+
+.month-buttons button:hover {
+    background-color: #0056b3;
+}
+
 /** 월 선택 관련 버튼 끝 **/
 
 /** 로고 버튼 **/
