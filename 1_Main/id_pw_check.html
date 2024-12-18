@@ -221,6 +221,7 @@
 
                 if (matchedUser) {
                     alert(`Your ID is: ${matchedUser.userID}`);
+                    window.location.href="login.html";
                 } else {
                     alert(
                         "No matching user found. Please check your information."
@@ -256,6 +257,7 @@
 
                     localStorage.setItem("Users", JSON.stringify(Users));
                     alert(`Your temporary password is: ${tempPassword}`);
+                    window.location.href="login.html";
                 } else {
                     alert(
                         "No matching user found. Please check your information."
