@@ -23,20 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 각각의 버튼에 이벤트 추가
     document.getElementById("profileButton").addEventListener("click", () => {
-        window.location.href = "../4_My/mypage.html"; // mypage로 이동
+        window.location.href = "/mypage.html"; // mypage로 이동
     });
     document
         .getElementById("challengeMapButton")
         .addEventListener("click", () => {
-            window.location.href = "../2_Hub/completion-rate.html"; // 노력지도 페이지로 이동
+            window.location.href = "/completion-rate.html"; // 노력지도 페이지로 이동
         });
     document.getElementById("memoButton").addEventListener("click", () => {
-        window.location.href = "../6_Memo/memo.html";
+        window.location.href = "/memo.html";
     });
 
     // 로고 버튼 클릭 시, Page 2로 이동
     document.getElementById("logoButton").addEventListener("click", () => {
-        window.location.href = "../2_Hub/calendar.html";
+        window.location.href = "/calendar.html";
     });
 
     /* === 년도 선택 및 월 선택 관련 코드 === */
@@ -139,9 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             // 월별 캘린더 페이지로 이동
-            window.location.href = `../2_Hub/calendar.html?year=${selectedYear}&month=${
-                index + 1
-            }`;
+            window.location.href = `/calendar.html?year=${selectedYear}&month=${index + 1
+                }`;
         });
 
         monthContainer.appendChild(monthButton);

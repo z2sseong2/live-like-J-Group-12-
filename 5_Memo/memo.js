@@ -24,21 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // 각각의 버튼에 이벤트 추가 (필요에 따라 수정 가능)
     document.getElementById("profileButton").addEventListener("click", () => {
         //alert("Profile clicked");
-        window.location.href = "../4_My/mypage.html"; // mypage로 이동
+        window.location.href = "/mypage.html"; // mypage로 이동
     });
     document
         .getElementById("challengeMapButton")
         .addEventListener("click", () => {
             //alert("ChallengeMap clicked");
-            window.location.href = "../2_Hub/completion-rate.html";
+            window.location.href = "/completion-rate.html";
         });
     document.getElementById("memoButton").addEventListener("click", () => {
         //alert("Memo clicked");
-        window.location.href = "../6_Memo/memo.html";
+        window.location.href = "/memo.html";
     });
     // 로고 버튼 클릭 시, Page2로 이동
     document.getElementById("logoButton").addEventListener("click", () => {
-        window.location.href = "../2_Hub/calendar.html";
+        window.location.href = "/calendar.html";
     });
 });
 // 메모 저장 및 로드 기능

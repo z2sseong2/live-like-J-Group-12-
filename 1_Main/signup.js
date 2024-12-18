@@ -205,5 +205,5 @@ setjoinbtn.addEventListener("click", (e) => {
     localStorage.setItem("Users", JSON.stringify(Users));
 
     alert("회원가입 성공!");
-    window.location.href = "../2_Hub/calendar.html";
+    window.location.href = "/calendar.html";
 });

@@ -12,21 +12,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 각 메뉴 버튼에 이벤트 추가
     document.getElementById("profileButton").addEventListener("click", () => {
-        window.location.href = "../4_My/mypage.html";
+        window.location.href = "/mypage.html";
     });
     document
         .getElementById("challengeMapButton")
         .addEventListener("click", () => {
-            window.location.href = "../2_Hub/completion-rate.html";
+            window.location.href = "/completion-rate.html";
         });
     document.getElementById("memoButton").addEventListener("click", () => {
-        window.location.href = "../6_Memo/memo.html";
+        window.location.href = "/memo.html";
     });
 
     // 로고 버튼 클릭 시 이동
     const logoButton = document.getElementById("logoButton");
     logoButton.addEventListener("click", () => {
-        window.location.href = "../2_Hub/calendar.html";
+        window.location.href = "/calendar.html";
     });
 
     // 비밀번호 보이기/숨기기 기능
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!loggedInUserID) {
         alert("로그인이 필요합니다.");
-        window.location.href = "../1_Main/login.html";
+        window.location.href = "/login.html";
         return;
     }
 

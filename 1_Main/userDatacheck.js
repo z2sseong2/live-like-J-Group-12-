@@ -18,7 +18,7 @@ loginbtn.addEventListener("click", (e) => {
             // 로그인된 사용자 ID를 sessionStorage에 저장
             sessionStorage.setItem("loggedInUserID", Users[i].userID);
 
-            window.location.href = "../2_Hub/calendar.html";
+            window.location.href = "/calendar.html";
             return;
         }
     }

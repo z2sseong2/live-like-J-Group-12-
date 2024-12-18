@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     currentMonthElement.addEventListener("click", () => {
-        window.location.href = "../3_Yearly/yearlycalendar.html";
+        window.location.href = "/yearlycalendar.html";
     });
 
     // 오늘 날짜로 돌아와서 달력 다시 생성
@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 각각의 버튼에 이벤트 추가 (필요에 따라 수정 가능)
     document.getElementById("profileButton").addEventListener("click", () => {
         // alert("Profile clicked");
-        window.location.href = "../4_My/mypage.html"; // mypage로 이동
+        window.location.href = "/mypage.html"; // mypage로 이동
     });
     document
         .getElementById("challengeMapButton")
@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     document.getElementById("memoButton").addEventListener("click", () => {
         // alert("Memo clicked");
-        window.location.href = "../5_Memo/memo.html";
+        window.location.href = "/memo.html";
     });
     function openPopup(date) {
         popupDateElement.textContent = date;
