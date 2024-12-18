@@ -27,10 +27,16 @@ function idlength(value) {
 
 // 비밀번호 적합성 확인 함수
 function checkPassword(str) {
-    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+    return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/.test(
         str
     );
+    /* 문자, 숫자, 특수문자 포함 조건
+        return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+            str
+        );
+    */
 }
+
 
 // 비밀번호와 비밀번호 확인 일치 여부 확인
 
@@ -159,8 +165,28 @@ setUserEM.onkeyup = function () {
 
 // 가입 버튼 클릭 시 처리
 setjoinbtn.addEventListener("click", (e) => {
-    if (!canid || !canpw || !canpwCf || !canPN || !canEM) {
-        alert("정보를 다시 입력하세요");
+    if (!canid) {
+        alert("id가 4자리이상 12자리 이하이어야 합니다.");
+        window.location.reload();
+        return;
+    }
+    else if (!canpw) {
+        alert("비밀번호는 8글자 이상 문자와 숫자를 포함해야 합니다.");
+        window.location.reload();
+        return;
+    }
+    else if (!canpwCf) {
+        alert("비밀번호가 비밀번호 확인과 일치하지 않습니다.");
+        window.location.reload();
+        return;
+    }
+    else if (!canPN) {
+        alert("전화번호는 10~11자의 숫자이어야 합니다.");
+        window.location.reload();
+        return;
+    }
+    else if (!canEM) {
+        alert("이메일 형식을 지켜주세요.");
         window.location.reload();
         return;
     }
