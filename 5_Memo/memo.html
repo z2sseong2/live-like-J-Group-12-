@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Memo</title>
+        <link href="./memo.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="page-container">
+            <!-- 페이지 헤더 -->
+            <div class="page-header">
+                <!-- 메뉴 버튼 -->
+                <div class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-box" id="menuBox">
+                    <ul>
+                        <li><button id="profileButton">Profile</button></li>
+                        <li>
+                            <button id="challengeMapButton">
+                                ChallengeMap
+                            </button>
+                        </li>
+                        <li><button id="memoButton">Memo</button></li>
+                    </ul>
+                </div>
+
+                <!-- 로고 버튼 -->
+                <button id="logoButton" class="logo-button">
+                    <img
+                        src="../images/logo_2.jpg"
+                        alt="Logo"
+                        class="logo-img"
+                    />
+                </button>
+            </div>
+
+            <!-- 메모장 섹션 -->
+            <div class="memo-section">
+                <h2>Memo</h2>
+                <textarea
+                    id="memoInput"
+                    placeholder="Write your memo here..."
+                ></textarea>
+                <button id="saveMemoButton">Save Memo</button>
+                <div id="savedMemoDisplay"></div>
+            </div>
+        </div>
+
+        <!-- JavaScript 파일 -->
+        <script src="./memo.js"></script>
+        <script>
+            // 메모 저장 및 표시
+            document
+                .getElementById("saveMemoButton")
+                .addEventListener("click", () => {
+                    const memoContent =
+                        document.getElementById("memoInput").value;
+                    const displayArea =
+                        document.getElementById("savedMemoDisplay");
+
+                    if (memoContent.trim()) {
+                        displayArea.textContent = memoContent;
+                    } else {
+                        alert("Please write something before saving.");
+                    }
+                });
+        </script>
+    </body>
+</html>

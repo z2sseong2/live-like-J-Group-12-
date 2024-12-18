@@ -1,106 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>live-like-j SIGN UP</title>
-        <link rel="stylesheet" href="signup_style.css" />
-    </head>
-    <body>
-        <div class="signup horizontal">
-            <div class="logo">
-                <a href="login.html">
-                    <img src="../images/logo_2.jpg" alt="Logo" />
-                </a>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>live-like-j SIGN UP</title>
+    <link rel="stylesheet" href="signup_style.css" />
+</head>
+
+<body>
+    <div class="signup horizontal">
+        <div class="logo">
+            <a href="login.html">
+                <img src="/logo_2.jpg" alt="Logo" />
+            </a>
+        </div>
+        <!--회원가입 항목들-->
+
+        <form method="post">
+            <fieldset>
+                <strong>NAME</strong>
+                <input type="text" id="name" name="name" class="login_form" placeholder="Name" />
+            </fieldset>
+
+            <fieldset>
+                <strong>ID</strong>
+                <input type="text" id="id" name="id" class="login_form userid" , placeholder="ID" />
+            </fieldset>
+            <div class="success-message hide">
+                사용할 수 있는 아이디입니다
             </div>
-            <!--회원가입 항목들-->
+            <div class="condition-message hide">
+                아이디는 4~12글자이어야 합니다
+            </div>
+            <div class="early-message hide">이미 존재하는 아이디입니다</div>
 
-            <form method="post">
-                <fieldset>
-                    <strong>NAME</strong>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="login_form"
-                        placeholder="Name"
-                    />
-                </fieldset>
+            <fieldset>
+                <strong>PASSWORD</strong>
+                <input type="password" id="pw" name="password" class="login_form userpw" placeholder="Password" />
+            </fieldset>
+            <div class="checkPassword-message hide">
+                8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요
+            </div>
 
-                <fieldset>
-                    <strong>ID</strong>
-                    <input
-                        type="text"
-                        id="id"
-                        name="id"
-                        class="login_form userid"
-                        ,
-                        placeholder="ID"
-                    />
-                </fieldset>
-                <div class="success-message hide">
-                    사용할 수 있는 아이디입니다
-                </div>
-                <div class="condition-message hide">
-                    아이디는 4~12글자이어야 합니다
-                </div>
-                <div class="early-message hide">이미 존재하는 아이디입니다</div>
+            <fieldset>
+                <strong>CONFIRM PASSWROD</strong>
+                <input type="password" id="pwConfirm" name="password confirm" class="login_form userpw-confirm"
+                    placeholder="password confirm" />
+            </fieldset>
+            <div class="mismatch-message hide">
+                비밀번호가 일치하지 않습니다
+            </div>
 
-                <fieldset>
-                    <strong>PASSWORD</strong>
-                    <input
-                        type="password"
-                        id="pw"
-                        name="password"
-                        class="login_form userpw"
-                        placeholder="Password"
-                    />
-                </fieldset>
-                <div class="checkPassword-message hide">
-                    8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요
-                </div>
+            <fieldset>
+                <strong>PHONE-NUMBER</strong>
+                <input type="tel" id="pn" name="phnum" class="login_form" placeholder="PHONE-NUMBER" />
+            </fieldset>
 
-                <fieldset>
-                    <strong>CONFIRM PASSWROD</strong>
-                    <input
-                        type="password"
-                        id="pwConfirm"
-                        name="password confirm"
-                        class="login_form userpw-confirm"
-                        placeholder="password confirm"
-                    />
-                </fieldset>
-                <div class="mismatch-message hide">
-                    비밀번호가 일치하지 않습니다
-                </div>
+            <fieldset>
+                <strong>E-MAIL</strong>
+                <input type="email" id="em" name="e-mail" class="login_form" placeholder="E-mail" />
+            </fieldset>
 
-                <fieldset>
-                    <strong>PHONE-NUMBER</strong>
-                    <input
-                        type="tel"
-                        id="pn"
-                        name="phnum"
-                        class="login_form"
-                        placeholder="PHONE-NUMBER"
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <strong>E-MAIL</strong>
-                    <input
-                        type="email"
-                        id="em"
-                        name="e-mail"
-                        class="login_form"
-                        placeholder="E-mail"
-                    />
-                </fieldset>
-
-                <!--가입 신청 버튼-->
-                <div class="join_btn">
-                    <button
-                        type="button"
-                        name="join button"
-                        style="
+            <!--가입 신청 버튼-->
+            <div class="join_btn">
+                <button type="button" name="join button" style="
                             cursor: pointer;
                             border: none;
                             width: 50%;
@@ -108,15 +71,13 @@
                             color: white;
                             background-color: rgba(80, 15, 15, 0.5);
                             font-family: 'Noto Sans KR', sans-serif;
-                        "
-                        value="가입하기"
-                        id="join_btn"
-                    >
-                        sign up
-                    </button>
-                </div>
-            </form>
-        </div>
-        <script src="signup.js"></script>
-    </body>
+                        " value="가입하기" id="join_btn">
+                    sign up
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="signup.js"></script>
+</body>
+
 </html>
