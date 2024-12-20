@@ -4,7 +4,7 @@ const port = 3000
 
 app.use(express.static('1_Main'));
 app.use(express.static('2_Hub'));
-app.use(express.static('3_Yearly-Calendar'));
+app.use(express.static('3_Yearly'));
 app.use(express.static('4_My'));
 app.use(express.static('5_Memo'));
 app.use(express.static('images'));
