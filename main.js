@@ -34,7 +34,7 @@ app.get('/completion', (req, res) => {
 });
 
 app.get('/yearlycalendar', (req, res) => {
-    res.sendFile(__dirname + '/3_Yearly-Calendar/yearlycalendar.html');
+    res.sendFile(__dirname + '/3_Yearly/yearlycalendar.html');
 });
 
 app.get('/mypage', (req, res) => {
